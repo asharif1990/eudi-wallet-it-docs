@@ -83,13 +83,18 @@ Restore flow for Hardware Binding Credential
 ----------
 Considering the User has initialized the new Wallet Instance and it is in active state by obtaining a new PID , we relax the requirement of the ARF concerning adding the PID inside the backup file. Below, the description of the steps on Figure 2.:
 
-**Steps 1-5**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. The User selects `restore Wallet` in the Wallet Instance app, where he prompts to upload the backup file from the local storage (It is possible to upload the backup from the cloud storage as well) and enter the recovery key phrases. After that, using the backup API service, the Wallet Instance obtains the decrypted backup file. After that, it MUST verify the signitaure of the backup file by extracting the Wallet Attestation from from ``wallet_attestation`` calim and using the related public key that is provided within the Wallet Attestation (``cnf`` claim).
+**Steps 1-5**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. The User selects `restore Wallet` in the Wallet Instance app, where he prompts to upload the backup file from the local storage (It is possible to upload the backup from the cloud storage as well) and enter the recovery key phrases. To check the authenticity of the file, it MUST verify the signature of the backup file. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
 
 **Steps 6-9**: The Wallet Instance for each HW binding credentials entry in the backup file performs the following steps:
 
 - It checks the ``iss``, ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the credential type to the (Q)EAA provider. 
 - Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new HW key to bind the credential. 
 
+.. note::
+  
+  The Wallet Instance MUST not check the expiration of the Wallet Attestation as its mian purposes is to enable the Wallet Instance to verify the authenticity of the backup file by ensuring it has been created and signed by a Wallet Instance of specific Wallet Provider.
+
+  - provide a way for the Wallet Instance to verify the authenticity of 
 
 .. _ARF: https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework
 
