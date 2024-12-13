@@ -25,8 +25,7 @@ Below, the description of the steps on Figure 1.:
 
 **Steps 2-3**: The Wallet Instance using the Backup APIs randomly selects 10 key phrases from a pre-generated list of words and displays it to the User. The User MUST write down or store the key phrases in a secure place as the backup is encrypted using the generated phrases. To extract the key from the list of selected words a key derivation function MUST be applied. Password-Based-Key-Derivation Function 2 (PBKDF2) is among the mostly used ones based on `RFC 2898`_ and it is recommended by the `NIST 800-132 <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf>`_. There are other relevant techniques that are available and used widely, such as Bcrypt, Scrypt, and Argon2 (used by Hyperledger Indy within Connect.me Wallet). More details on this approach can be found `here <https://cryptobook.nakov.com/mac-and-key-derivation/kdf-deriving-key-from-password>`_.
 
-**Step 4**: The Wallet Instance performs the defined operations below to create the backup file. The reason for encryption is that the backup file is considered sensitive as highlighted in the `ARF`_. 
- To elaborate, even if the attacker knows only the Issuer identifier of a certain credential, it enables him to know the different type of credentials that are released by this entity and can be a violation of user privacy.
+**Step 4**: The Wallet Instance performs the defined operations below to create the backup file. The reason for encryption is that the backup file is considered sensitive as highlighted in the `ARF`_. To elaborate, even if the attacker knows only the Issuer identifier of a certain credential, it enables him to know the different type of credentials that are released by this entity and can be a violation of user privacy.
  
  - For each of the HW bound key credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup file. 
  - Sign the backup file using the private key that is created during the setup phase to obtain the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim).
@@ -39,6 +38,7 @@ Below, the description of the steps on Figure 1.:
 A non-normative example of the backup file is as the following:
  
  .. code-block::
+  
   {
     "timestamp":"2024-12-13T16:35:06+01:00",
     "wallet_provider_id":"https://wallet-provider.example.org/",
@@ -61,6 +61,7 @@ The backup file contains the following REQUIRED claims:
 .. list-table::
     :widths: 20 60 
     :header-rows: 1
+    
     * - **Claim**
       - **Description**
     * - **timestamp**
