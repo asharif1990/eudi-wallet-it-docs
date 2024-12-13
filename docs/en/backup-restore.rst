@@ -74,6 +74,7 @@ The backup file contains the following REQUIRED claims:
       - It MUST be set to a value containing the Wallet Attestation JWT. 
     * - **credentials_backup**
       - Array of JSON objects that contains the following claims for each credentials that are backuped:
+        
         - ``iss``: Credential issuer identifier. It provides the identifier of the credential issuer to initiate the credential issuance.
         - ``credential_configuration_id``: Unique identifier of the credential. It provides a way to identify the specific credential that is issued, in case the Issuer can issue multiple credentials. This parameter then can be automatically filled in the authorization request during the re-issuance.
 
