@@ -94,7 +94,7 @@ Considering the User has initialized the new Wallet Instance and it is in active
   
   The Wallet Instance MUST not check the expiration of the Wallet Attestation as its mian purposes is to enable the Wallet Instance to verify the authenticity of the backup file by ensuring it has been created and signed by a Wallet Instance of specific Wallet Provider.
 
-  - provide a way for the Wallet Instance to verify the authenticity of 
+ 
 
 .. _ARF: https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework
 
