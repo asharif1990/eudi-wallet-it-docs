@@ -92,7 +92,7 @@ Considering the User has initialized the new Wallet Instance and it is in active
 
 .. note::
   
-  The Wallet Instance MUST not check the expiration of the Wallet Attestation as its mian purposes is to enable the Wallet Instance to verify the authenticity of the backup file by ensuring it has been created and signed by a Wallet Instance of specific Wallet Provider.
+  The Wallet Instance MUST not check the expiration of the Wallet Attestation as its main purpose is to enable the Wallet Instance to verify the authenticity of the backup file by ensuring it has been created and signed by a Wallet Instance of a specific Wallet Provider.
 
  
 
