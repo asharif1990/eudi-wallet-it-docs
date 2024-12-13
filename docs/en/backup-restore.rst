@@ -89,3 +89,5 @@ Implementation considerations
 -----------------------------
 
 TODO
+
+.. _ARF: https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework
