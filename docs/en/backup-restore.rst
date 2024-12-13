@@ -10,7 +10,9 @@ The situations that may demand the User to use this functionality are as the fol
 - The User replaces an existing installation of a **Wallet Solution** with a new installation of the **same Wallet Solution**.
 - The User has changed his mobile device and need to setup the **Wallet Solution** in his new mobile device.
 - The User **factory resets** the current phone and needs to set up the Wallet Solution again.
+
 .. note::
+  
   The Backup and Restore functionality is different from migrating to another Wallet Solution (a.k.a. Data portability). 
   In the latter case, we are dealing with a scenario in which the User wants to migrate from his current Wallet Solution to a different one due to ceases to support the Wallet Solution `ARF`_.    
 
@@ -39,6 +41,7 @@ Below, the description of the steps on Figure 1.:
  **Step 6**: Considering the native storage as the preferred choice, the file will be stored on the User device.
 
  A non-normative example of the backup file is as the following:
+ 
  .. code-block::
   {
     "timestamp":"2024-12-13T16:35:06+01:00",
@@ -75,6 +78,7 @@ Below, the description of the steps on Figure 1.:
       - Array of JSON objects that contains the following claims for each credentials that are backuped:
         - ``iss``: Credential issuer identifier. It provides the identifier of the credential issuer to initiate the credential issuance.
         - ``credential_configuration_id``: Unique identifier of the credential. It provides a way to identify the specific credential that is issued, in case the Issuer can issue multiple credentials. This parameter then can be automatically filled in the authorization request during the re-issuance.
+
 
 Restore flow for Hardware Binding Credential
 ----------
