@@ -6,6 +6,7 @@ Backup and Restore
 +++++++++++++++++++++++++++
 The relevant scenario for the **Backup and Restore** functionality is when the User can no longer access the credentials (e.g., electronic attestations of attributes) that were stored on the mobile device on which the Wallet Instance was installed. 
 The situations that may demand the User to use this functionality are as the following:
+
 - The mobile device has either been **lost**, **stolen**, **broken** or **hacked** (e.g., a result of unauthorized access to the device).
 - The User replaces an existing installation of a **Wallet Solution** with a new installation of the **same Wallet Solution**.
 - The User has changed his mobile device and need to setup the **Wallet Solution** in his new mobile device.
@@ -14,7 +15,7 @@ The situations that may demand the User to use this functionality are as the fol
 .. note::
   
   The Backup and Restore functionality is different from migrating to another Wallet Solution (a.k.a. Data portability). 
-  In the latter case, we are dealing with a scenario in which the User wants to migrate from his current Wallet Solution to a different one due to ceases to support the Wallet Solution `ARF`_.    
+  In the latter case, we are dealing with a scenario in which the User wants to migrate from his current Wallet Solution to a different one due to ceases to support the Wallet Solution as highlighted in Annex 2 of `ARF`_.    
 
 Backup Flow
 ------------
@@ -32,6 +33,7 @@ Below, the description of the steps on Figure 1.:
  **Step 4**: The Wallet Instance performs the defined operations below to create the backup file. 
  The reason for encryption is that the backup file is considered sensitive as highlighted in the `ARF`_. 
  To elaborate, even if the attacker knows only the Issuer identifier of a certain credential, it enables him to know the different type of credentials that are released by this entity and can be a violation of user privacy.
+ 
  - For each of the HW bound key credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup file. 
  - Sign the backup file using the private key that is created during the setup phase to obtain the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim).
  - Encrypt the backup file using the provided key phrases. 
