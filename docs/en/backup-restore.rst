@@ -87,6 +87,12 @@ The backup file contains the following REQUIRED claims:
 
 Restore flow for Hardware Binding Credential
 ----------
+
+.. figure:: ../../images/Restore_flow.svg
+   :name: Sequence Diagram for Wallet Instance Restore
+   :alt: The figure illustrates the sequence diagram for restore flow, with the steps explained below.
+   :target: https://www.plantuml.com/plantuml/svg/VPFVJzim4CVVyrVS-h8YqLJRs8yXX2YbIDNeAAlO7gO9NUoZzUROmRx0AiJ_FZjkHqF7yXIVx_Ez7_dco3CwhakTlL16w5eIB9Whlz_lExpBvueNTL5xSi8Q9iEvi6M_qcWYq_CijIhwmxtUD8Ok9sVz4ZsJ2w6hOI1G6N9v5VKp56mTN0OjG0-T-DB9ijaov9TNnxOs4jsoUuTQ4y-ihbbPimkTRqq0rf7E3jnd49v_WsCJ1ZA27i5r986hvszltGB5hxeQL6f6xbOru74JWi5q32aOs8PyoB8sNDf2QPg5kN0UoKbpXXEA49nPWHhIRIgVH1wsfxuXmgcpjqgI2peNez40rkT4jkfQ9SMjK27pV7moXA_3SRWiAsl8SEYrdMmmxWqrZKy2y7brWd3SWC9Db_9vlWjHSHTcWydPpfRKDKciOjbJakGQfVQQucmlOI0b83WIZ6Qk2OIsde0jjERA7XE6uz5i6lgvJ_peTwMLK0mQbxPcGFcpzboIORYs3YhhLIojp3nhVG7eVLyeASdyw1r2smzHzWjfZ9nVgCfdZH5x8V6f0s0VEWV5uQiy03u84oGd7VIBmqx23lx3lSxZX6N5SU3BIbkKi7BKgTBqLAKzG99uayECD0dU1E4wg49AJ2hFZv1azlBrhc5aX5jMJBAbY4Q66muYdsW9quL3Jpv9RmtNsrffAl8s3tP_8fuaabcU1T_bS5v4Ny6462KohhXsSiDl_XwGyFVnyzpKv1cw5plHLudUS7jQyCfRYVgGmw3c1HbM0fayX7U8QqnmgyvpZN_COUnzJT2KRK38LdzaAhdPGs0wsH4PMPVw3m00
+
 Considering the User has initialized the new Wallet Instance and it is in active state by obtaining a new PID , we relax the requirement of the ARF concerning adding the PID inside the backup file. Below, the description of the steps on Figure 2.:
 
 **Steps 1-5**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. The User selects `restore Wallet` in the Wallet Instance app, where he prompts to upload the backup file from the local storage (It is possible to upload the backup from the cloud storage as well) and enter the recovery key phrases. To check the authenticity of the file, it MUST verify the signature of the backup file. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
