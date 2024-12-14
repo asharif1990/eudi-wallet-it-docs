@@ -19,6 +19,12 @@ The situations that may demand the User to use this functionality are as the fol
 
 Backup Flow
 ------------
+
+.. figure:: ../../images/Backup_flow.svg
+   :name: Sequence Diagram for Wallet Instance Backup
+   :alt: The figure illustrates the sequence diagram for backup flow, with the steps explained below.
+   :target: https://www.plantuml.com/plantuml/svg/ZP5VRzCm5CNV_IakUM58914mU9YgQbiPQ6AJAbKJ3u2cc-JI61pRigyf4UAx4pk4aROFyrDxRdxdt3_ddj5nw9Hu8dMjGaFGCbj_LfOETyLMSXkguCdLHZDfBchJbLQXZapkkL6oAbUd-JfATxStPOUUoGtI_MeWK6foXOt-0cis3ku6Bq0FMVoH2R7fFLDtVsc2Rj3r9pjKYdXZL61fz7F8FYO19YLx1hy43EyuUAqzewxf0PoK2KplNsyd5TRVWxsmSaFkXqpWPPBWOdqDIOni8dyBCOSxKqb56pOEjv6yJV_XBKK8RaoD2iRg51zD1fkdSFNJAbbB1eMz2GpOV0kUEz8CNuq3QxoCuqgz5RCKo3-ricb8VycNC9zPYBJS_A00Pv0jgkMB0lwEjd8qEB14vHTbjSp4tlUBwB6_cT7aPG7lIPD39lX0FQnRXvwEsqINsD98lYhIBXw77Gy_BMBhCVfArwwtJCqqqZkfQ7JRG_VRU5qSmX64png6Ckmajx1sfhFf4l_Nqa7BbJAXcSwQ8X_sFZ_L6FYcW0JEaNFIJUZK7m00
+
 Below, the description of the steps on Figure 1.:
 
 **Step 1**: The user clicks on the backup credentials option in the Wallet Instance. 
