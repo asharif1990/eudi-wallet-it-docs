@@ -58,6 +58,11 @@ A non-normative example of the backup file is as the following:
  
  .. code-block::
   
+  {   "alg": "ES256",   
+    "kid": "vbeXJksM45xphtANnCiG6mCyuU4jfGNzopGuKvogg9c",
+    "typ": "wallet_instance_backup+jwt",    
+  }
+  .
   {
     "timestamp":"2024-12-13T16:35:06+01:00",
     "wallet_provider_id":"https://wallet-provider.example.org/",
@@ -75,7 +80,26 @@ A non-normative example of the backup file is as the following:
    ]
   }
 
-The backup file contains the following REQUIRED claims:
+The JOSE header of the backup JWT MUST contain the following REQUIRED claims:
+
+.. list-table::
+    :widths: 20 60 20
+    :header-rows: 1
+
+    * - **JOSE header**
+      - **Description**
+      - **Reference**
+    * - **alg**
+      - A digital signature algorithm identifier such as per IANA "JSON Web Signature and Encryption Algorithms" registry. It MUST be one of the supported algorithms listed in the Section `Cryptographic Algorithms <algorithms.html>`_ and MUST NOT be set to ``none`` or any symmetric algorithm (MAC) identifier.
+      - :rfc:`7516#section-4.1.1`.
+    * - **kid**
+      -  Unique identifier of the ``jwk`` inside the ``cnf`` claim of Wallet Instance as base64url-encoded JWK Thumbprint value.
+      - :rfc:`7638#section_3`.
+    * - **typ**
+      -  It MUST be set to ``wallet-instance-backup+jwt``
+      - 
+
+The body of backup JWT contains the following REQUIRED claims:
 
 .. list-table::
     :widths: 20 60 
