@@ -48,7 +48,7 @@ A non-normative example of the backup file is as the following:
   {
     "timestamp":"2024-12-13T16:35:06+01:00",
     "wallet_provider_id":"https://wallet-provider.example.org/",
-    "wallet_version":"v1.0",
+    "wallet_instance_version":"v1.0",
     "wallet_attestation":"eyJhbGciOiJFUzI1NiIsImVVfQz.eyJpc3MiOiAiaH...LCAibmJ",
     "credentials_backup":[
      {  
@@ -74,7 +74,7 @@ The backup file contains the following REQUIRED claims:
       - UNIX timestamp with the time of backup file creation. This value is updated every time a new credential entry is added to the backup file.
     * - **wallet_provider_id**
       - It MUST be set to the identifier of the Wallet Provider.
-    * - **wallet_version**
+    * - **wallet_instance_version**
       - It MUST be set to  the version of the Wallet Solution that has been backuped.
     * - **wallet_attestation**
       - It MUST be set to a value containing the Wallet Attestation JWT. 
