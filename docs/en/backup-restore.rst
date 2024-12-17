@@ -34,7 +34,7 @@ Below, the description of the steps on Figure 1.:
 **Step 4**: The Wallet Instance performs the defined operations below to create the backup file. The reason for encryption is that the backup file is considered sensitive as highlighted in the `ARF`_. To elaborate, even if the attacker knows only the Issuer identifier of a certain credential, it enables him to know the different type of credentials that are released by this entity and can be a violation of user privacy.
  
 - For each of the HW bound key credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup file. 
-- Sign the backup file using the private key that is created during the setup phase to obtain the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim).
+- Sign the backup file using the private key that its public key is attested within the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim). The Wallet Instance MUST verify the validity of the Wallet Attestation before signing the backup file.
 - Encrypt the backup file using the provided key phrases. 
 
 **Step 5**: The User will be prompted to select the storage for securely storing the backup file based on his preference. This can range from native storage to external storage (e.g., cloud storage, usb, etc.). 
