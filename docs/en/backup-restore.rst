@@ -3,7 +3,7 @@
 .. _backup-restore.rst:
 
 Backup and Restore
-+++++++++++++++++++++++++++
+++++++++++++++++++
 The relevant scenario for the **Backup and Restore** functionality is when the User can no longer access the Digital Credentials that were stored on the mobile device on which the Wallet Instance was installed. 
 The situations that may demand the User to use this functionality are as the following:
 
@@ -18,7 +18,7 @@ The situations that may demand the User to use this functionality are as the fol
   In the latter case, we are dealing with a scenario in which the User wants to migrate from his current Wallet Solution to a different one due to ceases to support the Wallet Solution as highlighted in Annex 2 of `ARF`_.    
 
 Backup Flow
-------------
+-----------
 
 .. _fig_Backup_flow:
 .. figure:: ../../images/Backup_flow.svg
@@ -124,7 +124,7 @@ The body of backup JWT contains the following REQUIRED claims:
 
 
 Restore flow for Hardware Binding Credential
-----------
+--------------------------------------------
 
 .. _fig_Restore_flow:
 .. figure:: ../../images/Restore_Flow.svg
