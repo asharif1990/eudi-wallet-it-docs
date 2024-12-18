@@ -33,7 +33,7 @@ Below, the description of the steps of :numref:`fig_Backup_flow`:
 **Step 1**: The User clicks on the backup credentials option in the Wallet Instance. 
 
 **Steps 2-3**: The Wallet Instance using the Backup APIs randomly selects 10 key phrases from a pre-generated list of words and displays it to the User. 
-The User MUST write down or store the key phrases in a secure place as the backup is encrypted using the generated phrases. 
+The User MUST securely store the key phrases (e.g., in a password manager or a physical safe) as they are critical for restoring the backup.
 
 .. note::
   
@@ -99,7 +99,7 @@ The JOSE header of the backup JWT MUST contain the following REQUIRED parameters
       - :rfc:`7638#section_3`.
     * - **typ**
       -  It MUST be set to ``wallet-instance-backup+jwt``
-      - 
+      - N/A
 
 The body of backup JWT contains the following REQUIRED claims:
 
@@ -140,7 +140,7 @@ Below, the description of the steps of :numref:`fig_Restore_flow`:
 
 **Steps 1-6**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. 
 The User selects `restore Wallet` in the Wallet Instance app, where he is prompted to upload the backup file from the local storage (it is possible to upload the backup file from the cloud storage as well) and enter the recovery key phrases. 
-To check the authenticity of the file, it MUST verify the signature of the backup JWT. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
+To check the authenticity of the file, the Wallet Instance MUST verify the backup JWT's signature to ensure its authenticity. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
 
 **Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the payload of the backup JWT performs the following steps:
 
