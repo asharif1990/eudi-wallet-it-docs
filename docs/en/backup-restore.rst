@@ -44,17 +44,18 @@ The User MUST write down or store the key phrases in a secure place as the backu
   
   To extract the key from the list of selected words a key derivation function MUST be applied. Password-Based-Key-Derivation Function 2 (PBKDF2) is among the mostly used ones based on `RFC 2898`_ and it is recommended by the `NIST 800-132 <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf>`_. There are other relevant techniques that are available and used widely, such as Bcrypt, Scrypt, and Argon2 (used by Hyperledger Indy within Connect.me Wallet). More details on this approach can be found `here <https://cryptobook.nakov.com/mac-and-key-derivation/kdf-deriving-key-from-password>`_.
 
-**Step 4**: The Wallet Instance performs the operations below to create the backup file. 
+**Step 4**: The Wallet Instance performs the operations below to create the backup JWT entry for the backup file. 
  
-- For each of the HW bound key credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup file. 
-- Sign the backup file using the private key that its public key is attested within the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim). The Wallet Instance MUST verify the validity of the Wallet Attestation before signing the backup file.
+- For each of the HW bound key credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup JWT. 
+- Sign the backup JWT using the private key that its public key is attested within the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim). The Wallet Instance MUST verify the validity of the Wallet Attestation before signing the backup JWT.
+- Add the signed backup JWT as an entry to the backup file. 
 - Encrypt the backup file using the provided key phrases. 
 
 **Step 5**: The User will be prompted to select the storage for securely storing the backup file based on his preference. This can range from native storage to external storage (e.g., cloud storage, usb, etc.). 
 
 **Step 6**: Considering the native storage as the preferred choice, the file will be stored on the User device.
 
-A non-normative example of the backup file is as the following:
+A non-normative example of the backup JWT is as the following:
  
  .. code-block::
   
@@ -81,7 +82,7 @@ A non-normative example of the backup file is as the following:
    ]
   }
 
-The JOSE header of the backup JWT MUST contain the following REQUIRED claims:
+The JOSE header of the backup JWT MUST contain the following REQUIRED parameters:
 
 .. list-table::
     :widths: 20 60 20
@@ -139,9 +140,9 @@ Below, the description of the steps of :numref:`fig_Restore_flow`:
 
 **Steps 1-6**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. 
 The User selects `restore Wallet` in the Wallet Instance app, where he is prompted to upload the backup file from the local storage (it is possible to upload the backup file from the cloud storage as well) and enter the recovery key phrases. 
-To check the authenticity of the file, it MUST verify the signature of the backup file. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
+To check the authenticity of the file, it MUST verify the signature of the backup JWT. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
 
-**Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the backup file performs the following steps:
+**Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the payload of the backup JWT performs the following steps:
 
 - It extracts ``iss``, ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the credential type to the (Q)EAA provider. 
 - Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new HW key to bind the credential. 
