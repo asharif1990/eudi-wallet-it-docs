@@ -59,7 +59,7 @@ A non-normative example of the backup file is as the following:
  .. code-block::
   
   { "alg": "ES256",   
-    "kid": "vbeXJksM45xphtANnCiG6mCyuU4jfGNzopGuKvogg9c",
+    "kid": "pDV1n6WNT4qFx2JbTv7S66WE55BkmHNyuEKO4JctiPw",
     "typ": "wallet_instance_backup+jwt",    
   }
   .
