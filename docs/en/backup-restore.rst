@@ -24,8 +24,7 @@ Backup Flow
 .. figure:: ../../images/Backup_flow.svg
    :name: Sequence Diagram for Wallet Instance Backup
    :alt: The figure illustrates the sequence diagram for backup flow, with the steps explained below.
-   :target: https://www.plantuml.com/plantuml/svg/ZP5VRzCm5CNV_IakUM58914mU9YgQbiPQ6AJAbKJ3u2cc-JI61pRigyf4UAx4pk4aROFyrDxRdxdt3_ddj5nw9Hu8dMjGaFGCbj_LfOETyLMSXkguCdLHZDfBchJbLQXZapkkL6oAbUd-JfATxStPOUUoGtI_MeWK6foXOt-0cis3ku6Bq0FMVoH2R7fFLDtVsc2Rj3r9pjKYdXZL61fz7F8FYO19YLx1hy43EyuUAqzewxf0PoK2KplNsyd5TRVWxsmSaFkXqpWPPBWOdqDIOni8dyBCOSxKqb56pOEjv6yJV_XBKK8RaoD2iRg51zD1fkdSFNJAbbB1eMz2GpOV0kUEz8CNuq3QxoCuqgz5RCKo3-ricb8VycNC9zPYBJS_A00Pv0jgkMB0lwEjd8qEB14vHTbjSp4tlUBwB6_cT7aPG7lIPD39lX0FQnRXvwEsqINsD98lYhIBXw77Gy_BMBhCVfArwwtJCqqqZkfQ7JRG_VRU5qSmX64png6Ckmajx1sfhFf4l_Nqa7BbJAXcSwQ8X_sFZ_L6FYcW0JEaNFIJUZK7m00
-
+   :target: https://www.plantuml.com/plantuml/png/VP5HRzGm3CVVyodClMn8j1KmU9YcqxPZe8bDEkaqyG1eIbFlQaYJAd4uAhJlJj96WuvZUMhj_y_-spxrB1s7JejdP9GE3KBBtFlZgd9oLsw9sr07ZqvPmsYuLBQhUYrDOWhFZQQwMXqLwnIwkRwgEkaPNGpThY8XoQ0h-rHVICNMmKsi1TB38dqiXDWCKT_TdjjW6kc6mvtK6dbZTM2oviMaE_3m3d-GmiLp-2KWlltOfV4iZSA8VHe3a2CPpE_1sM6Wt24A6TsTJCezkbggxw4_wsc3Blc8rFaOWhFr9UHW9k_5dEriJHetR9tS9l1w_Cy3mPLLKaFE9fUvnhqG1t3nizUaY47BmGO6sNmBdZiq37VMGMyzfIsHsOfP5oW-jzGqQBuMIvYlHeXnt28c0i4nB4xgvSiIyZGhXv5YajgVLFLo8QBc96aVBs02NvNm0GqwoGWVSO1rwwJ7FsWYKxj9_ReSvzmZVLmT_j_og4mcKyCBezpGCpQGpRydZK_K2pHLU5F-Y-vp_8GKlXY8QTWHjx1sjkkdW_oL6-zQhRGDJRvkzlQm_ld5fePlInZ1ENAAfWcT_Wq0
    Backup flow.
 
 Below, the description of the steps of :numref:`fig_Backup_flow`:
@@ -58,7 +57,8 @@ A non-normative example of the backup file is as the following:
  
  .. code-block::
   
-  { "alg": "ES256",   
+  { 
+    "alg": "ES256",   
     "kid": "pDV1n6WNT4qFx2JbTv7S66WE55BkmHNyuEKO4JctiPw",
     "typ": "wallet_instance_backup+jwt",    
   }
@@ -129,18 +129,17 @@ Restore flow for Hardware Binding Credential
 .. figure:: ../../images/Restore_Flow.svg
    :name: Sequence Diagram for Wallet Instance Restore
    :alt: The figure illustrates the sequence diagram for restore flow, with the steps explained below.
-   :target: https://www.plantuml.com/plantuml/svg/VPFVJzim4CVVyrVS-h8YqLJRs8yXX2YbIDNeAAlO7gO9NUoZzUROmRx0AiJ_FZjkHqF7yXIVx_Ez7_dco3CwhakTlL16w5eIB9Whlz_lExpBvueNTL5xSi8Q9iEvi6M_qcWYq_CijIhwmxtUD8Ok9sVz4ZsJ2w6hOI1G6N9v5VKp56mTN0OjG0-T-DB9ijaov9TNnxOs4jsoUuTQ4y-ihbbPimkTRqq0rf7E3jnd49v_WsCJ1ZA27i5r986hvszltGB5hxeQL6f6xbOru74JWi5q32aOs8PyoB8sNDf2QPg5kN0UoKbpXXEA49nPWHhIRIgVH1wsfxuXmgcpjqgI2peNez40rkT4jkfQ9SMjK27pV7moXA_3SRWiAsl8SEYrdMmmxWqrZKy2y7brWd3SWC9Db_9vlWjHSHTcWydPpfRKDKciOjbJakGQfVQQucmlOI0b83WIZ6Qk2OIsde0jjERA7XE6uz5i6lgvJ_peTwMLK0mQbxPcGFcpzboIORYs3YhhLIojp3nhVG7eVLyeASdyw1r2smzHzWjfZ9nVgCfdZH5x8V6f0s0VEWV5uQiy03u84oGd7VIBmqx23lx3lSxZX6N5SU3BIbkKi7BKgTBqLAKzG99uayECD0dU1E4wg49AJ2hFZv1azlBrhc5aX5jMJBAbY4Q66muYdsW9quL3Jpv9RmtNsrffAl8s3tP_8fuaabcU1T_bS5v4Ny6462KohhXsSiDl_XwGyFVnyzpKv1cw5plHLudUS7jQyCfRYVgGmw3c1HbM0fayX7U8QqnmgyvpZN_COUnzJT2KRK38LdzaAhdPGs0wsH4PMPVw3m00
-
+   :target: https://www.plantuml.com/plantuml/png/TP5DRnCn48Rl-ok6N9fAP5T0-L0LHVrea2fQ4OWg3e2gsVKqCNZjbJrk6w7-T-or5TYssPCpVfzd9kCZnsZPjwfu8NMZl21OCtVkiAeitfKhoMjVUqUsCPf9SzcOjkeKwiXC70ibw-hqOBA8fQlBYwf5nsH3wVeq42WrsRAB_W8RDXQkWWlGmIWUHaMnt8HyUtrYl1PeD-CxL8fuQPHdQVJBbDjpS4Qtig7HFlmf87pFO-VQCUg60lQjBq2kP31_syd6NkOE8SXaRp0cdydLsFpstN4dbsJZ784wwKjml3Y7NCpaGr4CuTRKKj6IZSLL92_xt_aVmOLfK46wJMCcoSDsD_Dx7fyxvya6E1r2gs8FvlUTaeraKBWndW75B--u9SrmOonqnicuHAbNnM06c7nVIo58_vpCOBYvgFrA2YFdrh9pHR-TaFCI3c4qhMUlof1mmKIGbZojwjaevQQJVxdN9IoiQJi6Dd3LAOC2yj8-IaK3QWR30PFXJGbBKjJm_npS12dau5QIHqpSGT_vLWg2kMxifcCI0mLg4MuuK9ze0ukrHKSkkRoCfiVldRnlozs-fwR7ZjtUToMSKVP65dxeKCqDaYmzEpnvhoHuNyBdcb5gk2H6WOn3RBg3-r12du3nb_tv_BXde3WYBNoh_W80
    Restore flow.
 
 Considering that the User has initialized the new Wallet Instance and it is in active state by obtaining a new PID, this specification relaxes the requirement of the ARF concerning the addition of the PID in the backup file. 
 Below, the description of the steps of :numref:`fig_Restore_flow`:
 
-**Steps 1-5**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. 
+**Steps 1-6**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. 
 The User selects `restore Wallet` in the Wallet Instance app, where he is prompted to upload the backup file from the local storage (it is possible to upload the backup file from the cloud storage as well) and enter the recovery key phrases. 
 To check the authenticity of the file, it MUST verify the signature of the backup file. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
 
-**Steps 6-9**: The Wallet Instance for each HW binding credentials entry in the backup file performs the following steps:
+**Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the backup file performs the following steps:
 
 - It extracts ``iss``, ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the credential type to the (Q)EAA provider. 
 - Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new HW key to bind the credential. 
