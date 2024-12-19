@@ -56,6 +56,12 @@ The User MUST securely store the key phrases (e.g., in a password manager or a p
 - Add the signed backup JWT as an entry to the backup file. 
 - Encrypt the backup file using the provided key phrases. 
 
+.. note::
+
+  The Backup JWT MAY contain transaction history for each credential entry within the ``credentials_backup`` claim.
+
+  
+
 **Step 5**: The User will be prompted to select the storage for securely storing the backup file based on his preference. This can range from native storage to external storage (e.g., cloud storage, usb, etc.). 
 
 **Step 6**: Considering the native storage as the preferred choice, the file will be stored on the User device.
