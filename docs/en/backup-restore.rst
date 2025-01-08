@@ -4,13 +4,12 @@
 
 Backup and Restore
 ++++++++++++++++++
-The relevant scenario for the **Backup and Restore** functionality is when the User can no longer access the Digital Credentials that were stored on the mobile device on which the Wallet Instance was installed. 
-The situations that may demand the User to use this functionality are as the following:
+The **Backup and Restore** functionality becomes relevant when the User can no longer access the Digital Credentials stored on the mobile device where the Wallet Instance was installed. Situations that may require the User to utilize this functionality include:
 
-- The mobile device has either been **lost**, **stolen**, **broken** or **hacked** (e.g., a result of unauthorized access to the device).
-- The User replaces an existing installation of a Wallet Solution with a **new installation of the same Wallet Solution**.
-- The User has **changed his mobile device** and need to setup the Wallet Solution in his new mobile device.
-- The User **factory resets** the current phone and needs to set up the Wallet Solution again.
+- The mobile device has been **lost**, **stolen**, **damaged**, or **compromised** (e.g., due to unauthorized access).
+- The User replaces an existing Wallet Instance with a new instance of the same Wallet Solution.
+- The User has changed their mobile device and needs to set up the Wallet Solution on the new device.
+- The User performs a factory reset on the current phone and needs to set up the Wallet Solution again.
 
 .. note::
   
