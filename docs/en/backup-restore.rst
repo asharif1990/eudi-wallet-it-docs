@@ -13,8 +13,7 @@ The **Backup and Restore** functionality becomes relevant when the User can no l
 
 .. note::
   
-  The Backup and Restore functionality is different from migrating to another Wallet Solution (a.k.a. Data portability). 
-  In the latter case, we are dealing with a scenario in which the User wants to migrate from his current Wallet Solution to a different one due to ceases to support the Wallet Solution as highlighted in Annex 2 of `ARF`_.    
+  The Backup and Restore functionality differs from migrating to another Wallet Solution (also known as Data Portability). In the latter scenario, the User wishes to transition from their current Wallet Solution to a different one, possibly because the current solution is no longer supported, as highlighted in Annex 2 of ARF.
 
 Backup Flow
 -----------
@@ -29,39 +28,38 @@ Backup Flow
 
 Below, the description of the steps of :numref:`fig_Backup_flow`:
 
-**Step 1**: The User clicks on the backup credentials option in the Wallet Instance. 
+**Step 1**: The User selects the option to back up Credentials stored within the Wallet Instance. 
 
-**Steps 2-3**: The Wallet Instance using the Backup APIs randomly selects 10 key phrases from a pre-generated list of words and displays it to the User. 
+**Steps 2-3**: The Wallet Instance using the backup APIs randomly selects 10 key phrases from a pre-generated list of words and displays it to the User. 
 The User MUST securely store the key phrases (e.g., in a password manager or a physical safe) as they are critical for restoring the backup.
 
 .. note::
   
-  As highlighted in the `ARF`_, the reason for encryption is due to the fact that the backup file is considered sensitive. Indeed, even if the attacker knows only the 
-  Issuer identifiers of the Digital Credentials, it enables him to know the different types of Digital Credentials and this is a violation of user privacy.
+  As highlighted in the ARF, encryption is necessary because the backup file is considered sensitive. Even if an attacker only knows the Issuer identifiers, they can infer the different types of Digital Credentials, which constitutes a violation of User privacy.
 
 .. note::
   
-  To extract the key from the list of selected words a key derivation function MUST be applied. Password-Based-Key-Derivation Function 2 (PBKDF2) is among the mostly used ones based on `RFC 2898`_ and it is recommended by the `NIST 800-132 <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf>`_. There are other relevant techniques that are available and used widely, such as Bcrypt, Scrypt, and Argon2 (used by Hyperledger Indy within Connect.me Wallet). More details on this approach can be found `here <https://cryptobook.nakov.com/mac-and-key-derivation/kdf-deriving-key-from-password>`_.
+  To extract the key from the list of selected words a key derivation function MUST be applied. Password-Based-Key-Derivation Function 2 (PBKDF2) is among the mostly used ones based on `RFC 2898`_ and it is recommended by the `NIST 800-132 <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf>`_. There are other relevant techniques that are available and used widely, such as Bcrypt, Scrypt, and Argon2. More details on this approach can be found `here <https://cryptobook.nakov.com/mac-and-key-derivation/kdf-deriving-key-from-password>`_.
 
 .. note::
   
-  The work factor for PBKDF2 is implemented through an iteration count, which should set differently based on the internal hashing algorithm used. The recommended value for ``SHA-256`` hashing algorithim is 600,000 iterations as stated in the `OWASP Password Storage Cheatsheet <https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2>`_.
+  The work factor for PBKDF2 is implemented through an iteration count, which should set differently based on the internal hashing algorithm used. The recommended value for ``SHA-256`` hashing algorithim is 600000 iterations as stated in the `OWASP Password Storage Cheatsheet <https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2>`_.
 
 
 **Step 4**: The Wallet Instance performs the operations below to create the backup JWT entry for the backup file. 
  
-- For each of the HW bound key credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup JWT. 
+- For each of the HW bound key Credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup JWT. 
 - Sign the backup JWT using the private key that its public key is attested within the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim). The Wallet Instance MUST verify the validity of the Wallet Attestation before signing the backup JWT.
 - Add the signed backup JWT as an entry to the backup file. 
 - Encrypt the backup file using the provided key phrases. 
 
 .. note::
 
-  The Backup JWT MAY contain transaction history for each credential entry within the ``credentials_backup`` claim.
+  The Backup JWT MAY contain transaction history for each Credential entry within the ``credentials_backup`` claim.
 
   
 
-**Step 5**: The User will be prompted to select the storage for securely storing the backup file based on his preference. This can range from native storage to external storage (e.g., cloud storage, usb, etc.). 
+**Step 5**: The User will be prompted to choose a storage option for securely storing the backup file. Options may include native storage or external storage solutions, such as cloud storage or USB devices.
 
 **Step 6**: Considering the native storage as the preferred choice, the file will be stored on the User device.
 
@@ -72,7 +70,7 @@ A non-normative example of the backup JWT is as the following:
   { 
     "alg": "ES256",   
     "kid": "pDV1n6WNT4qFx2JbTv7S66WE55BkmHNyuEKO4JctiPw",
-    "typ": "wallet_instance_backup+jwt",    
+    "typ": "wallet-unit-credentials-backup+jwt",    
   }
   .
   {
@@ -80,16 +78,10 @@ A non-normative example of the backup JWT is as the following:
     "wallet_provider_id":"https://wallet-provider.example.org/",
     "wallet_instance_version":"v1.0",
     "wallet_attestation":"eyJhbGciOiJFUzI1NiIsImVVfQz.eyJpc3MiOiAiaH...LCAibmJ",
-    "credentials_backup":[
-     {  
-        "iss": "https://issuer.example.org/v1.0/mdl",
-        "credential_configuration_id":"org.iso.18013-5.1.mDL"
+    "credentials_backup": {  
+        "https://issuer.example.org/v1.0/mdl": ["org.iso.18013-5.1.mDL"],
+        "https://eaa-provider.example.org/": ["EuropeanDisabilityCard"]
      },
-     {  
-        "iss": "https://eaa-provider.example.org/",
-        "credential_configuration_id":"EuropeanDisabilityCard"
-     },
-   ]
   }
 
 The JOSE header of the backup JWT MUST contain the following REQUIRED parameters:
@@ -108,7 +100,7 @@ The JOSE header of the backup JWT MUST contain the following REQUIRED parameters
       -  Unique identifier of the ``jwk`` inside the ``cnf`` claim of Wallet Instance as base64url-encoded JWK Thumbprint value.
       - :rfc:`7638#section_3`.
     * - **typ**
-      -  It MUST be set to ``wallet-instance-backup+jwt``
+      -  It MUST be set to ``wallet-unit-credentials-backup+jwt``
       - N/A
 
 The body of backup JWT contains the following REQUIRED claims:
@@ -122,13 +114,13 @@ The body of backup JWT contains the following REQUIRED claims:
     * - **timestamp**
       - UNIX timestamp with the time of backup file creation. This value is updated every time a new credential entry is added to the backup file.
     * - **wallet_provider_id**
-      - It MUST be set to the identifier of the Wallet Provider.
+      - It MUST be set to the unique identifier of the Wallet Provider.
     * - **wallet_instance_version**
       - It MUST be set to  the version of the Wallet Solution that has been backed up.
     * - **wallet_attestation**
       - It MUST be set to a value containing the Wallet Attestation JWT. 
     * - **credentials_backup**
-      - Array of JSON objects that contains the following claims for each credentials that are backuped:
+      - Array of JSON objects that contains the following claims for each Credentials that are backupped:
         
         - ``iss``: Credential Issuer identifier. It provides the identifier of the Credential Issuer to initiate the issuance phase.
         - ``credential_configuration_id``: Unique identifier of the Digital Credential. It provides a way to identify the specific Digital Credential that is issued, in case the Issuer can issue multiple Digital Credentials. This parameter then can be automatically filled in the authorization request during the re-issuance.
