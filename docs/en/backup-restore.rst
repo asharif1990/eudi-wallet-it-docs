@@ -61,7 +61,7 @@ The User MUST securely store the key phrases (e.g., in a password manager or a p
 
 **Step 5**: The User will be prompted to choose a storage option for securely storing the backup file. Options may include native storage or external storage solutions, such as cloud storage, USB devices, e-mail delivery or any other.
 
-**Step 6**: Considering the native storage as the preferred choice, the file will be stored on the User device.
+**Step 6**: In the case where the User prefers the native storage, the backup file is stored on the User device.
 
 A non-normative example of the backup JWT is as the following:
  
@@ -69,7 +69,6 @@ A non-normative example of the backup JWT is as the following:
   
   { 
     "alg": "ES256",   
-    "kid": "pDV1n6WNT4qFx2JbTv7S66WE55BkmHNyuEKO4JctiPw",
     "typ": "wallet-unit-credentials-backup+jwt",    
   }
   .
@@ -96,9 +95,6 @@ The JOSE header of the backup JWT MUST contain the following REQUIRED parameters
     * - **alg**
       - A digital signature algorithm identifier such as per IANA "JSON Web Signature and Encryption Algorithms" registry. It MUST be one of the supported algorithms listed in the Section `Cryptographic Algorithms <algorithms.html>`_ and MUST NOT be set to ``none`` or any symmetric algorithm (MAC) identifier.
       - :rfc:`7516#section-4.1.1`.
-    * - **kid**
-      -  Unique identifier of the ``jwk`` inside the ``cnf`` claim of Wallet Instance as base64url-encoded JWK Thumbprint value.
-      - :rfc:`7638#section_3`.
     * - **typ**
       -  It MUST be set to ``wallet-unit-credentials-backup+jwt``
       - N/A
@@ -137,7 +133,7 @@ Restore flow for Hardware Binding Credential
 Considering that the User has initialized the new Wallet Instance and it is in active state by obtaining a new PID, this specification relaxes the requirement of the ARF concerning the addition of the PID in the backup file. 
 Below, the description of the steps of :numref:`fig_Restore_flow`:
 
-**Steps 1-6**: The User wants to restore the Wallet with the backup that the User has from the previous Wallet Instance. 
+**Steps 1-6**: The User wants to restore the Digital Credentials using the backup previously created with their Wallet Instance. 
 The User selects `restore Wallet` in the Wallet Instance app, where he is prompted to upload the backup file from the local storage (it is possible to upload the backup file from the cloud storage as well) and enter the recovery key phrases. 
 To check the authenticity of the file, the Wallet Instance MUST verify the backup JWT's signature to ensure its authenticity. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
 
