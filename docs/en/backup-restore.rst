@@ -140,7 +140,7 @@ To check the authenticity of the file, the Wallet Instance MUST verify the backu
 **Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the payload of the backup JWT performs the following steps:
 
 - It extracts the Credential Issuer identifier and the ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the Credential type to the (Q)EAA provider. 
-- Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new HW key to bind the credential. 
+- Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new cryptographic binding with the Credential. 
 
 .. note::
   
