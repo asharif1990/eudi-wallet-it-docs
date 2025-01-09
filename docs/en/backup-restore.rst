@@ -13,7 +13,7 @@ The **Backup and Restore** functionality becomes relevant when the User can no l
 
 .. note::
   
-  The Backup and Restore functionality differs from migrating to another Wallet Solution (also known as Data Portability). In the latter scenario, the User wishes to transition from their current Wallet Solution to a different one, possibly because the current solution is no longer supported, as highlighted in Annex 2 of ARF.
+  The Backup and Restore functionality differs from migrating to another Wallet Solution (also known as Data Portability). In the latter scenario, the User wishes to transition from their current Wallet Solution to a different one, possibly because the current solution is no longer supported, as highlighted in Annex 2 of `EIDAS-ARF`_.
 
 Backup Flow
 -----------
@@ -59,7 +59,7 @@ The User MUST securely store the key phrases (e.g., in a password manager or a p
 
   
 
-**Step 5**: The User will be prompted to choose a storage option for securely storing the backup file. Options may include native storage or external storage solutions, such as cloud storage or USB devices.
+**Step 5**: The User will be prompted to choose a storage option for securely storing the backup file. Options may include native storage or external storage solutions, such as cloud storage, USB devices, e-mail delivery or any other.
 
 **Step 6**: Considering the native storage as the preferred choice, the file will be stored on the User device.
 
