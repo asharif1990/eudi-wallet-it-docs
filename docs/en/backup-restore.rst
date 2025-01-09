@@ -13,7 +13,8 @@ The **Backup and Restore** functionality becomes relevant when the User can no l
 
 .. note::
   
-  The Backup and Restore functionality differs from migrating to another Wallet Solution (also known as Data Portability). In the latter scenario, the User wishes to transition from their current Wallet Solution to a different one, possibly because the current solution is no longer supported, as highlighted in Annex 2 of `EIDAS-ARF`_.
+  For Wallet Solutions based on the IT Wallet technical specifications, the migration to a different Wallet Solution (known as data portability) can be supported following the backup and restore functionality described in this section.
+  
 
 Backup Flow
 -----------
@@ -48,7 +49,7 @@ The User MUST securely store the key phrases (e.g., in a password manager or a p
 
 **Step 4**: The Wallet Instance performs the operations below to create the backup JWT entry for the backup file. 
  
-- For each of the HW bound key Credentials, add the ``iss``, ``credential_configuration_id`` as an entry in the backup JWT. 
+- For each of the HW bound key Credentials, add the Credential Issuer identifier and the ``credential_configuration_id`` as an entry in the backup JWT. 
 - Sign the backup JWT using the private key that its public key is attested within the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim). The Wallet Instance MUST verify the validity of the Wallet Attestation before signing the backup JWT.
 - Add the signed backup JWT as an entry to the backup file. 
 - Encrypt the backup file using the provided key phrases. 
@@ -139,8 +140,8 @@ To check the authenticity of the file, the Wallet Instance MUST verify the backu
 
 **Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the payload of the backup JWT performs the following steps:
 
-- It extracts the Credential Issuer identifier and the ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the Credential type to the (Q)EAA provider. 
-- Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new cryptographic binding with the Credential. 
+- It extracts the Credential Issuer identifier and the ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the Credential type to the Credential Issuer. 
+- Using the Issuer identifier the Wallet Instance obtains the metadata of the Credential Issuer and makes a re-issuance request to the Credential Issuer by providing the new cryptographic binding with the Credential. 
 
 .. note::
   
