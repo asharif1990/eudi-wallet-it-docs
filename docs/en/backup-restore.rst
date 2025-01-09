@@ -134,12 +134,12 @@ Considering that the User has initialized the new Wallet Instance and it is in a
 Below, the description of the steps of :numref:`fig_Restore_flow`:
 
 **Steps 1-6**: The User wants to restore the Digital Credentials using the backup previously created with their Wallet Instance. 
-The User selects `restore Wallet` in the Wallet Instance app, where he is prompted to upload the backup file from the local storage (it is possible to upload the backup file from the cloud storage as well) and enter the recovery key phrases. 
+The User selects `restore Digital Credentials backup` in the Wallet Instance app and a prompt with the import function is provided to the User. The backup file to be imported can be provided using a local storage or a remote location using a cloud storage as well, and therefore submit the recovery key phrases. 
 To check the authenticity of the file, the Wallet Instance MUST verify the backup JWT's signature to ensure its authenticity. To do this, it first extracts the Wallet Attestation JWT from ``wallet_attestation`` claim and obtains the related public key using the Wallet Attestation (``cnf`` claim).
 
 **Steps 7-8**: The Wallet Instance for each HW binding credentials entry in the payload of the backup JWT performs the following steps:
 
-- It extracts ``iss``, ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the credential type to the (Q)EAA provider. 
+- It extracts the Credential Issuer identifier and the ``credential_configuration_id`` from the entry. The former is used to identify the Issuer and obtains its metadata, while the latter will be used to signal the Credential type to the (Q)EAA provider. 
 - Using the Issuer identifier the Wallet Instance obtains the metadata of the (Q)EAA Provider and makes a re-issuance request to the (Q)EAA by providing the new HW key to bind the credential. 
 
 .. note::
