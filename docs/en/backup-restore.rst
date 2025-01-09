@@ -120,10 +120,7 @@ The body of backup JWT contains the following REQUIRED claims:
     * - **wallet_attestation**
       - It MUST be set to a value containing the Wallet Attestation JWT. 
     * - **credentials_backup**
-      - Array of JSON objects that contains the following claims for each Credentials that are backupped:
-        
-        - ``iss``: Credential Issuer identifier. It provides the identifier of the Credential Issuer to initiate the issuance phase.
-        - ``credential_configuration_id``: Unique identifier of the Digital Credential. It provides a way to identify the specific Digital Credential that is issued, in case the Issuer can issue multiple Digital Credentials. This parameter then can be automatically filled in the authorization request during the re-issuance.
+      - Object that describes specifics of the Credential that are backupped. This object contains a list of name/value pairs, where each name is a unique identifier of the Credential Issuer. This identifier is used to initiate the issuance phase. The value is an array of unique strings. Each string corresponds to the ``credential_configuration_id`` that identifies the specific Digital Credential that was issued.
 
 
 Restore flow for Hardware Binding Credential
