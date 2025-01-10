@@ -52,7 +52,7 @@ The User MUST securely store the key phrase chosen from those proposed by the sy
 - For each of the HW bound key Credentials, add the Credential Issuer identifier and the ``credential_configuration_id`` as an entry in the backup JWT. 
 - Sign the backup JWT using the private key that its public key is attested within the Wallet Attestation. The related public key that is attested by the Wallet Provider is provided within the Wallet Attestation (``cnf`` claim). The Wallet Instance MUST verify the validity of the Wallet Attestation before signing the backup JWT.
 - Add the signed backup JWT as an entry to the backup file. 
-- Encrypt the backup file using the provided key phrases. 
+- Encrypt the backup file using the provided key phrase. 
 
 .. note::
 
