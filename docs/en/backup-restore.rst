@@ -4,7 +4,7 @@
 
 Backup and Restore
 ++++++++++++++++++
-The **Backup and Restore** functionality becomes relevant when the User can no longer access the Digital Credentials stored on the mobile device where the Wallet Instance was installed. Situations that may require the User to utilize this functionality include:
+The **Backup and Restore** functionality becomes relevant when the User wants to change device and/or Wallet Solution in order to access the previously issued Digital Credentials again.
 
 - The mobile device has been **lost**, **stolen**, **damaged**, or **compromised** (e.g., due to unauthorized access).
 - The User replaces an existing Wallet Instance with a new instance of the same Wallet Solution.
@@ -32,7 +32,7 @@ Below, the description of the steps of :numref:`fig_Backup_flow`:
 **Step 1**: The User selects the option to back up Credentials stored within the Wallet Instance. 
 
 **Steps 2-3**: The Wallet Instance using the backup APIs randomly selects 10 key phrases from a pre-generated list of words and displays it to the User. 
-The User MUST securely store the key phrases (e.g., in a password manager or a physical safe) as they are critical for restoring the backup.
+The User MUST securely store the key phrase chosen from those proposed by the system (e.g., in a password manager or a physical safe) as they are critical for restoring the backup.
 
 .. note::
   
