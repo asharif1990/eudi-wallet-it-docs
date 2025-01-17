@@ -271,7 +271,7 @@ Below normative details and references about the parameters to be used by the Wa
    * - `client_id_schemes_supported`
      - RECOMMENDED. Array of Client Identifier schemes. Default is `entity_id`.
    * - `authorization_endpoint`
-     - URL of authorization server's endpoint. See `OAUTH2`_, be this an universal link or a custom url-scheme.
+     - URL of the authorization server's endpoint. See `OAUTH2`_, preferably using a universal link for enhanced security and fallback support, though a custom url-scheme can also be used if necessary.
    * - `response_types_supported`
      - OPTIONAL. JSON array of OAuth 2.0 "response_type" values. If present it MUST be set to `vp_token`. Default is `vp_token`.
    * - `response_modes_supported`
@@ -294,6 +294,14 @@ Below a non-normative example of HTTP request made by the Wallet Instance to the
 
   The ``wallet_nonce`` parameter is RECOMMENDED for Wallet Instances that wants to prevent reply of their http requests to the Relying Parties. 
   When present, the Relying Party MUST evaluate it.
+
+
+.. note::
+
+  For the ``authorization_endpoint``, we prefer to use universal links over custom url-schemes due to several advantages: (1) When properly configured—using Assetlinks JSON for Android and Apple App Site Association for iOS—Universal Links provide enhanced security by reducing the risk of URL hijacking, 
+  and (2) universal links offer a fallback mechanism, allowing the flow to continue seamlessly in a browser if the Wallet Instance is not installed, ensuring a smoother user experience. However, to ensure interoperability, we also support custom url-schemes by adhering to the OpenID4VC High Assurance Interoperability Profile (HAIP) recommendations `OPENID4VC-HAIP`_, including support for ``haip://``.
+
+
 
 Request Object Details
 ----------------------
