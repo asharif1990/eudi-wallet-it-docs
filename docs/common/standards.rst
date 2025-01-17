@@ -60,9 +60,9 @@ Technical References
     * - :rfc:`7521`
       - Campbell, Mortimore, C., Jones, M., Goland, Y.,  "Assertion Framework for OAuth 2.0 Client Authentication and Authorization Grants", May 2015.       
     * - `OPENID4VC-HAIP`_
-      - Lodderstedt, T., K. Yasuda, "OpenID4VC High Assurance Interoperability Profile with SD-JWT VC".
+      - Lodderstedt, T., K. Yasuda, "OpenID4VC High Assurance Interoperability Profile", January 2025, Draft 1.
     * - `OAUTH-STATUS-ASSERTION`_
-      - De Marco, G., Steele, O., Marino, F., "OpenID4VC High Assurance Interoperability Profile with SD-JWT VC", June 2024, Draft 2.
+      - De Marco, G., Steele, O., Marino, F., "OAuth Status Assertions", June 2024, Draft 2.
     * - `OAUTH-ATTESTATION-CLIENT-AUTH`_
       - Looker, T., Bastian, P., "OAuth 2.0 Attestation-Based Client Authentication", May 2024, Draft 3.    
     * - `OAUTH-MULT-RESP-TYPE`_
