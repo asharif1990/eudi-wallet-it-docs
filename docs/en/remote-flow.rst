@@ -298,8 +298,8 @@ Below a non-normative example of HTTP request made by the Wallet Instance to the
 
 .. note::
 
-  For the ``authorization_endpoint``, we prefer to use universal links over custom url-schemes due to several advantages: (1) When properly configured—using Assetlinks JSON for Android and Apple App Site Association for iOS—Universal Links provide enhanced security by reducing the risk of URL hijacking, 
-  and (2) universal links offer a fallback mechanism, allowing the flow to continue seamlessly in a browser if the Wallet Instance is not installed, ensuring a smoother user experience. However, to ensure interoperability, we also support custom url-schemes by adhering to the OpenID4VC High Assurance Interoperability Profile (HAIP) recommendations `OPENID4VC-HAIP`_, including support for ``haip://``.
+  For the ``authorization_endpoint``, universal links are preferred over custom url-schemes due to several advantages: (1) When properly configured—using Assetlinks JSON for Android and Apple App Site Association for iOS—Universal Links provide enhanced security by reducing the risk of URL hijacking, 
+  and (2) universal links offer a fallback mechanism, allowing the flow to continue seamlessly in a browser if the Wallet Instance is not installed, ensuring a smoother user experience. To ensure interoperability, support custom url-schemes is also provided by adhering to the OpenID4VC High Assurance Interoperability Profile (HAIP) recommendations `OPENID4VC-HAIP`_, including support for ``haip://``.
 
 
 
