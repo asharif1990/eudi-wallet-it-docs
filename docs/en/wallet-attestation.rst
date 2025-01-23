@@ -458,7 +458,7 @@ The body of the Wallet Attestation Request JWT MUST contain:
       - JSON object with name/value pairs, identifying a Credential format supported by the Wallet.
       -
     * - **authorization_endpoint**
-      - URL of the Wallet Authorization Endpoint, preferably using a universal link for enhanced security and fallback support, though a custom url-scheme can also be used if necessary.
+      - URL of the Wallet Authorization Endpoint, it can be a universal link or a custom url-scheme.
       -
     * - **response_types_supported**
       - JSON array containing a list of the OAuth 2.0 ``response_type`` values.
@@ -528,7 +528,7 @@ The body of the Wallet Attestation JWT MUST contain:
       - JSON String asserting the authentication level of the Wallet and the key as asserted in the cnf claim.
       -
     * - **authorization_endpoint**
-      - URL of the Wallet Authorization Endpoint, preferably using a universal link for enhanced security and fallback support, though a custom url-scheme can also be used if necessary.
+      - URL of the Wallet Authorization Endpoint, it can be a universal link or a custom url-scheme.
       -
     * - **response_types_supported**
       - JSON array containing a list of the OAuth 2.0 ``response_type`` values.
