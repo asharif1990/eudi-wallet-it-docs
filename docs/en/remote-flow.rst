@@ -271,7 +271,7 @@ Below normative details and references about the parameters to be used by the Wa
    * - `client_id_schemes_supported`
      - RECOMMENDED. Array of Client Identifier schemes. Default is `entity_id`.
    * - `authorization_endpoint`
-     - URL of the authorization server's endpoint, see `OAUTH2`_. Using an universal link is preferably for enhanced security and fallback support, custom url schemes can also be used if necessary.
+     - URL of the authorization server's endpoint, see `OAUTH2`_. Using an universal link is preferable for enhanced security and fallback support, custom url schemes can also be used if necessary.
    * - `response_types_supported`
      - OPTIONAL. JSON array of OAuth 2.0 "response_type" values. If present it MUST be set to `vp_token`. Default is `vp_token`.
    * - `response_modes_supported`
