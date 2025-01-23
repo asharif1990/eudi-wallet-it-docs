@@ -62,7 +62,7 @@ Technical References
     * - `OPENID4VC-HAIP`_
       - Lodderstedt, T., K. Yasuda, "OpenID4VC High Assurance Interoperability Profile", January 2025, Draft 1.
     * - `OAUTH-STATUS-ASSERTION`_
-      - De Marco, G., Steele, O., Marino, F., "OAuth Status Assertions", June 2024, Draft 2.
+      - De Marco, G., Steele, O., Marino, F., Adomeit, M., "OAuth Status Assertions", June 2024, Draft 3.
     * - `OAUTH-ATTESTATION-CLIENT-AUTH`_
       - Looker, T., Bastian, P., "OAuth 2.0 Attestation-Based Client Authentication", May 2024, Draft 3.    
     * - `OAUTH-MULT-RESP-TYPE`_
