@@ -3,6 +3,8 @@
   "sub": "NzbLsXh8uDCcd7noWXFZAfHkxZsRGC9Xs",
   "iat": 1683000000,
   "exp": 1883000000,
+  "issuing_authority": "Istituto Poligrafico e Zecca dello Stato",
+  "issuing_country": "IT",
   "status": {
     "status_assertion": {
       "credential_hash_alg": "sha-256"
@@ -11,6 +13,7 @@
   "vct": "https://pidprovider.example.org/v1.0/personidentificationdata",
   "vct#integrity": "c5f73e250fe869f24d15118acce286c9bb56b63a443dc85af653cd73f6078b1f",
   "verification": {
+    "trust_framework": "it_cie",
     "assurance_level": "high",
     "evidence": [
     {
@@ -21,7 +24,7 @@
         "reference_number": "6485-1619-3976-6671",
         "date_of_issuance": "2020-03-19T12:43Z",
         "voucher": {
-          "organization": "Ministero dell'interno"
+          "organization": "Ministero dell'Interno"
         }
       }
     }
@@ -30,5 +33,8 @@
   "given_name": "Mario",
   "family_name": "Rossi",
   "birth_date": "1980-01-10",
-  "personal_administrative_number": "TINIT-XXXXXXXXXXXXXXXX"
+  "birth_place": "Roma",
+  "nationality": "IT",
+  "personal_administrative_number": "XX00000XX",
+  "tax_id_code": "TINIT-XXXXXXXXXXXXXXXX"
 }

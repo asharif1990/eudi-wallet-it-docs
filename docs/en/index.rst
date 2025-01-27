@@ -37,12 +37,14 @@ Index of content
    ssi-introduction.rst
    defined-terms.rst
    trust.rst
+   lifecycle.rst
    wallet-solution.rst
    wallet-attestation.rst
    pid-eaa-data-model.rst
    pid-eaa-issuance.rst
    pid-eaa-entity-configuration.rst
    authentic-sources.rst
+   e-service-pdnd.rst
    relying-party-solution.rst
    relying-party-entity-configuration.rst
    revocation-lists.rst
