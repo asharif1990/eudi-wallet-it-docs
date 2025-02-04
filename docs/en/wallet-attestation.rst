@@ -206,7 +206,7 @@ This section describes the Wallet Attestation format and how the Wallet Provider
   3. MUST check if Wallet Provider is part of the federation and obtain its metadata.
 
 
-**Steps 4-6**: The Wallet Instance solicits a one-time "challenge" from the Wallet Provider Backend. This "challenge" takes the form of a "nonce," which is required to be unpredictable and serves as the main defense against replay attacks. The backend MUST produce the "nonce" in a manner that ensures its single-use within a predetermined time frame.
+**Steps 4-6**: The Wallet Instance solicits a one-time "challenge" from the Wallet Provider Nonce endpoint. This "challenge" takes the form of a "nonce," which is required to be unpredictable and serves as the main defense against replay attacks. The Nonce endpoint MUST produce the "nonce" in a manner that ensures its single-use within a predetermined time frame.
 
 .. code-block:: http
 

@@ -36,16 +36,19 @@ This section describes the Wallet Trust Evidence format and how the Wallet Provi
    :alt: The figure illustrates the sequence diagram for issuing a Wallet Trust Evidence, with the steps explained below.
    :target: https://www.plantuml.com/plantuml/uml/VLH1Rziy3BthLn3v3bzhU9S1ss70Xgv5rdOTYgBDrak0WB7PM8WZUHATBllr8-KqSOB0XmIMzVZu-FJaYyWOk5tL1blshbtDAPZAbWGltlFS_p7_DmAmXMtGiJ5Oi0ym-XafZ00Zj57mFGICdh6kYU7M2RChAA6mQS08sMxt8VYrD0bmYSMIN3c2_txOHSMNTKjmo3Vn0e2nAnjl7IUwUR4ynDnxwNI8SGeIPj0PZCfyzqLaV897-jrIP40e0fNas68DDiOMbSCt592jTy0LyjG5GTj04RBiLZ2YU19QgHwhV2d8ChN4hf59fpJos_QvggXOWdsHogkmQTWl0ZQLBU06G_cAWU2EDZ7Bf3VW6csDyvfCZ-2Qd6eXsNP0JKKhMTPzrKlQG8CsI8llptT2TLQ4MTFEQrlae8yX2Jit9ZZF17vDGLNcQeuuVdjzCxb-78_lJIVs-714cTeC_aNS8FX6vPivACRwEQDrO3d2YXXBP5J3Kokp7KGRwIGi4fq_yYiTaVxjSTt4u1t1L6PSaGQiLvlGdJ-zjoKTSffJDWfU_9fL62jn2YCytNnz_-4Zd2MM77RMdGzKOumKr06XY7RXIFAr6JnX0KxTKV5CIv7RGBBxEH6TlMdBuJMTWYmwafdkC2xwiav6SPViLyiL3BJCzzRbKpSa7YQuwF0xT_Q3QvjUBXCcKX68isohDPtgazx2GSLcdmcfw8TLbldfhDekaqTV6usiTLPlX_rBPShfMfvBqqRh5Z0mgbYiy27Zzl4MJTlfVYaxSY-a9pS7I4_2nSlkIZ_uXzY3N0KImC3NQ7z11a0b7HZUNqkbkP0vsrNz3m00
 
-**Step 1**: The User initiates a new operation that necessitates the acquisition of a Wallet Attestation.
+   Wallet Trust Evidence Issuance.
 
-**Steps 2-3**: The Wallet Instance checks if a Cryptographic Hardware Key exists and generates an ephemeral asymmetric key pair. The Wallet Instance also:
+
+**Step 1**: The User initiates a credential issuance operation that necessitates the acquisition of the Wallet Trust Evidence.
+
+**Steps 2-3**: The Wallet Instance checks if a Cryptographic Hardware Key exists and generates an ephemeral asymmetric key pair (``cr_public``, ``cr_private``). The Wallet Instance also:
 
   1. MUST ensure that Cryptographic Hardware Keys exist. If they do not exist, it is necessary to reinitialize the Wallet.
-  2. MUST generates an ephemeral asymmetric key pair whose public key will be linked with the Wallet Attestation.
+  2. MUST generates an ephemeral asymmetric key pair whose public key (``cr_public``) will be attested in ``attested_keys`` claim of the Wallet Trust Evidence.
   3. MUST check if Wallet Provider is part of the federation and obtain its metadata.
 
 
-**Steps 4-6**: The Wallet Instance solicits a one-time "challenge" from the Wallet Provider Backend. This "challenge" takes the form of a "nonce," which is required to be unpredictable and serves as the main defense against replay attacks. The backend MUST produce the "nonce" in a manner that ensures its single-use within a predetermined time frame.
+**Steps 4-6**: The Wallet Instance solicits a one-time "challenge" from the Wallet Provider Nonce endpoint. This "challenge" takes the form of a "nonce," which is required to be unpredictable and serves as the main defense against replay attacks. The Nonce endpoint MUST produce the "nonce" in a manner that ensures its single-use within a predetermined time frame.
 
 .. code-block:: http
 
