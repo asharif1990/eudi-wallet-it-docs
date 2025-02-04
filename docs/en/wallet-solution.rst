@@ -248,6 +248,7 @@ External references
 
 .. _Trust Model section: trust.html
 .. _Wallet Attestation section: wallet-attestation.html
+.. _Wallet Trust Evidence section: wallet-trust-evidence.html
 .. _Trusty: https://source.android.com/docs/security/features/trusty
 .. _Secure Enclave: https://support.apple.com/en-gb/guide/security/sec59b0b31ff/web
 
