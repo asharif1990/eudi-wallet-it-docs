@@ -220,6 +220,9 @@ Below are the description of acronyms and definitions which are useful for furth
    * - Pseudonym
      - Pseudonyms are alternative identifier used to represent an entity (such as a person or organization) without revealing their true identity. It provides a layer of privacy and anonymity while still allowing for consistent authentication and authorization within a system.
      -
+   * - Wallet Trust Evidence
+     -  It is a Trust Assertion, which is issued by the Wallet Provider. It proves the keys used for key binding of Credentials reside in a trustworthy WSCD. 
+     - *Alternative terms:* Issuer Trust Evidence.
 
 
 Acronyms

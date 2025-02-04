@@ -18,8 +18,9 @@ also known as QEAAs and EAAs respectively, or (Q)EAAs for short[1].
 Once a User installs the mobile app on their device, such an installation is referred to as a Wallet Instance for the User.
 
 By supporting the mobile app, the Wallet Provider enusers the security and reliability of the entire Wallet Solution,
-as it is responsible for issuing the Wallet Attestation,
-which is a cryptographic proof about the authenticity and integrity of the Wallet Instance.
+as it is responsible for issuing the Wallet Attestation and Wallet Trust Evidence,
+which are cryptographic proofs about the authenticity and integrity of the Wallet Instance and 
+the trustworthiness of the Wallet Secure Cryptographic Device, respectively.
 
 Requirements
 ^^^^^^^^^^^^
@@ -43,12 +44,12 @@ presenting a Wallet Attestation during interactions with PID Providers,
 (Q)EAA Providers, and Relying Parties. These verifiable attestations, provided by the Wallet Provider,
 serve to authenticate the Wallet Instance itself, ensuring its reliability when engaging with other ecosystem actors.
 
-To guarantee the utmost security, these cryptographic keys MUST be securely stored within the WSCD, which MAY be internal (device's Trusted Execution Environment (TEE)[3]), external, or hybrid. This ensures that only the User can access them, thus preventing unauthorized usage or tampering. For more detailed information, please refer to the `Wallet Attestation section`_ and the `Trust Model section`_ of this document.
+To guarantee the utmost security, these cryptographic keys MUST be securely stored within the WSCD, which MAY be internal (device's Trusted Execution Environment (TEE)[3]), external, or hybrid. The Wallet Instance allows other entities within the ecosystem to establish trustworthiness of the WSCD by consistently presenting Wallet Trust Evidence during interactions with PID and (Q)EAA Providers. This ensures that the keys are stored within a trustworthy WSCD and only the legitimate User can access them, thus preventing unauthorized usage or tampering. For more detailed information, please refer to the `Wallet Trust Evidence section`_ and the `Trust Model section`_ of this document.
 
 Wallet Provider Endpoints
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Wallet Provider that issues the Wallet Attestations MUST make its APIs available in the form of RESTful services, as listed below.
+The Wallet Provider that issues the Wallet Attestation and the Wallet Trust Evidence MUST make its APIs available in the form of RESTful services, as listed below.
 
 Wallet Provider Metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,10 +113,10 @@ wallet_provider metadata
 | nonce_endpoint                              | HTTPs URL indicating the endpoint                                   |
 |                                             | where the client can request the nonce.                             |
 +---------------------------------------------+---------------------------------------------------------------------+
-| aal_values_supported                        | List of supported values for the                                    |
+| apr_values_supported                        | List of supported values for the                                    |
 |                                             | certifiable security context. These                                 |
-|                                             | values specify the security level                                   |
-|                                             | of the app, according to the levels: low, medium, or high.          |
+|                                             | values specify the authentication level of the Wallet and the key,  |
+|                                             | according to the levels: basic, enhanced_basic, moderate or high.   |
 |                                             | Authenticator Assurance Level values supported.                     |
 +---------------------------------------------+---------------------------------------------------------------------+
 | grant_types_supported                       | The types of grants supported by                                    |
@@ -132,7 +133,7 @@ wallet_provider metadata
 
 
 .. note::
-   The `aal_values_supported` parameter is experimental and under review.
+   The `apr_values_supported` parameter is experimental and under review.
 
 Payload `federation_entity`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,10 +191,11 @@ Below a non-normative example of the Entity Configuration.
       },
       "token_endpoint": "https://wallet-provider.example.org/token",
       "nonce_endpoint": "https://wallet-provider.example.org/nonce",
-      "aal_values_supported": [
-        "https://wallet-provider.example.org/LoA/basic",
-        "https://wallet-provider.example.org/LoA/medium",
-        "https://wallet-provider.example.org/LoA/high"
+      "apr_values_supported": [
+        "iso_18045_basic",
+        "iso_18045_enhanced-basic",
+        "iso_18045_moderate",
+        "iso_18045_high"
       ],
       "grant_types_supported": [
         "urn:ietf:params:oauth:client-assertion-type:jwt-client-attestation"
@@ -227,6 +229,13 @@ Wallet Attestation
 ~~~~~~~~~~~~~~~~~~
 
 Please refer to the `Wallet Attestation section`_.
+
+
+Wallet Trust Evidence
+~~~~~~~~~~~~~~~~~~~~~
+
+Please refer to the `Wallet Trust Evidence section`_.
+
 
 
 External references
