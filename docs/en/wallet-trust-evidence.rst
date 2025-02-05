@@ -197,10 +197,10 @@ Below is a non-normative example of the response.
 
 .. _table_wallet_trust_evidence_request_claim:
 
-Wallet Attestation Request
+Wallet Trust Evidence Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The JOSE header of the Wallet Attestation Request JWT MUST contain:
+The JOSE header of the Wallet Trust Evidence Request JWT MUST contain:
 
 .. list-table::
     :widths: 20 60 20
@@ -281,7 +281,7 @@ The JOSE header of the Wallet Trust Evidence JWT MUST contain:
       - Sequence of Entity Statements that composes the Trust Chain related to the Relying Party.
       - `OID-FED`_ Section 4.3 *Trust Chain Header Parameter*.
 
-The body of the Wallet Attestation JWT MUST contain:
+The body of the Wallet Trust Evidence JWT MUST contain:
 
 .. list-table::
     :widths: 20 60 20
