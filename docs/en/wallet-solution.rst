@@ -107,17 +107,14 @@ wallet_provider metadata
 |                                             | that represents the  Wallet                                         |
 |                                             | Provider's public keys.                                             |
 +---------------------------------------------+---------------------------------------------------------------------+
-| token_endpoint                              | Endpoint for obtaining the Wallet                                   |
+| wallet_attestation_endpoint                 | Endpoint for obtaining the Wallet                                   |
 |                                             | Instance Attestation.                                               |
 +---------------------------------------------+---------------------------------------------------------------------+
 | nonce_endpoint                              | HTTPs URL indicating the endpoint                                   |
 |                                             | where the client can request the nonce.                             |
 +---------------------------------------------+---------------------------------------------------------------------+
-| apr_values_supported                        | List of supported values for the                                    |
-|                                             | certifiable security context. These                                 |
-|                                             | values specify the authentication level of the Wallet and the key,  |
-|                                             | according to the levels: basic, enhanced_basic, moderate or high.   |
-|                                             | Authenticator Assurance Level values supported.                     |
+| wallet_trust_evidence_endpoint              | Endpoint for obtaining the Wallet                                   |
+|                                             | Trust Evidence Attestation.                                         |
 +---------------------------------------------+---------------------------------------------------------------------+
 | grant_types_supported                       | The types of grants supported by                                    |
 |                                             | the token endpoint. It MUST be set to                               |

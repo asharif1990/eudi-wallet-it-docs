@@ -261,7 +261,7 @@ Below an non-normative example of the Wallet Attestation Request JWT without enc
   .
   {
     "iss": "https://wallet-provider.example.org/instance/vbeXJksM45xphtANnCiG6mCyuU4jfGNzopGuKvogg9c",
-    "sub": "https://wallet-provider.example.org/",
+    "aud": "https://wallet-provider.example.org/",
     "challenge": "6ec69324-60a8-4e5b-a697-a766d85790ea",
     "hardware_signature": "KoZIhvcNAQcCoIAwgAIB...redacted",
     "integrity_assertion": "o2NmbXRvYXBwbGUtYXBwYX...redacted",
@@ -298,10 +298,10 @@ Below an non-normative example of the Wallet Attestation Request JWT without enc
     "exp": 1686652315
   }
 
-The Wallet Instance MUST do an HTTP request to the Wallet Provider's `token endpoint`_,
+The Wallet Instance MUST do an HTTP request to the Wallet Provider's `wallet attestation endpoint`_,
 using the method `POST <https://datatracker.ietf.org/doc/html/rfc6749#section-3.2>`__.
 
-The **token** endpoint (as defined in `RFC 7523 section 4`_) requires the following parameters
+The **wallet attestation** endpoint (act as an token endpoint which is defined in `RFC 7523 section 4`_) requires the following parameters
 encoded in ``application/x-www-form-urlencoded`` format:
 
 * ``grant_type`` set to ``urn:ietf:params:oauth:grant-type:jwt-bearer``;
@@ -309,7 +309,7 @@ encoded in ``application/x-www-form-urlencoded`` format:
 
 .. code-block:: http
 
-    POST /token HTTP/1.1
+    POST /wallet-attestation HTTP/1.1
     Host: wallet-provider.example.org
     Content-Type: application/x-www-form-urlencoded
 
@@ -341,13 +341,14 @@ Below an non-normative example of the Wallet Attestation without encoding and si
       "eyJhbGciOiJFUz...jJLA",
       "eyJhbGciOiJFUz...H9gw",
     ],
-    "typ": "wallet-attestation+jwt",
+    "typ": "oauth-client-attestation+jwt",
   }
   .
   {
     "iss": "https://wallet-provider.example.org",
     "sub": "vbeXJksM45xphtANnCiG6mCyuU4jfGNzopGuKvogg9c",
-    "aal": "https://trust-list.eu/aal/high",
+    "wallet_name": "IO",
+    "wallet_link": "https://wallet.io.pagopa.it/",
     "cnf":
     {
       "jwk":
@@ -415,7 +416,7 @@ The JOSE header of the Wallet Attestation Request JWT MUST contain:
       -  Unique identifier of the ``jwk`` used by the Wallet Provider to sign the Wallet Attestation, essential for matching the Wallet Provider's cryptographic public key needed for signature verification.
       - :rfc:`7638#section_3`.
     * - **typ**
-      -  It MUST be set to ``var+jwt``
+      -  It MUST be set to ``var+jwt``.
       -
 
 The body of the Wallet Attestation Request JWT MUST contain:
@@ -440,7 +441,7 @@ The body of the Wallet Attestation Request JWT MUST contain:
       - REQUIRED. UNIX Timestamp with the time of JWT issuance.
       - :rfc:`9126` and :rfc:`7519`.
     * - **challenge**
-      - Challenge data obtained from ``nonce`` endpoint
+      - Challenge data obtained from ``nonce`` endpoint.
       -
     * - **hardware_signature**
       - The signature of ``client_data`` obtained using Cryptographic Hardware Key base64 encoded.
@@ -449,11 +450,11 @@ The body of the Wallet Attestation Request JWT MUST contain:
       - The integrity assertion obtained from the **Device Integrity Service** with the holder binding of ``client_data``.
       -
     * - **hardware_key_tag**
-      - Unique identifier of the **Cryptographic Hardware Keys**
+      - Unique identifier of the **Cryptographic Hardware Keys**.
       -
     * - **cnf**
       - JSON object, containing the public part of an asymmetric key pair owned by the Wallet Instance.
-      - :rfc:`7800`
+      - :rfc:`7800`.
     * - **vp_formats_supported**
       - JSON object with name/value pairs, identifying a Credential format supported by the Wallet.
       -
@@ -465,7 +466,7 @@ The body of the Wallet Attestation Request JWT MUST contain:
       -
     * - **response_modes_supported**
       - JSON array containing a list of the OAuth 2.0 "response_mode" values that this authorization server supports.
-      - :rfc:`8414`
+      - :rfc:`8414`.
     * - **request_object_signing_alg_values_supported**
       - JSON array containing a list of the signing algorithms (alg values) supported.
       -
@@ -494,8 +495,8 @@ The JOSE header of the Wallet Attestation JWT MUST contain:
       -  Unique identifier of the ``jwk`` inside the ``cnf`` claim of Wallet Instance as base64url-encoded JWK Thumbprint value.
       - :rfc:`7638#section_3`.
     * - **typ**
-      -  It MUST be set to ``wallet-attestation+jwt``
-      -  `OPENID4VC-HAIP`_
+      -  It MUST be set to ``oauth-client-attestation+jwt``.
+      -  `OpenID4VCI`_.
     * - **trust_chain**
       - Sequence of Entity Statements that composes the Trust Chain related to the Relying Party.
       - `OID-FED`_ Section 4.3 *Trust Chain Header Parameter*.
@@ -510,7 +511,7 @@ The body of the Wallet Attestation JWT MUST contain:
       - **Description**
       - **Reference**
     * - **iss**
-      - Identifier of the Wallet Provider
+      - Identifier of the Wallet Provider.
       - :rfc:`9126` and :rfc:`7519`.
     * - **sub**
       - Identifier of the Wallet Instance which is the thumbprint of the Wallet Instance JWK contained in the ``cnf`` claim.
@@ -523,10 +524,13 @@ The body of the Wallet Attestation JWT MUST contain:
       - :rfc:`9126` and :rfc:`7519`.
     * - **cnf**
       - JSON object, containing the public part of an asymmetric key pair owned by the Wallet Instance.
-      - :rfc:`7800`
-    * - **aal**
-      - JSON String asserting the authentication level of the Wallet and the key as asserted in the cnf claim.
-      -
+      - :rfc:`7800`.
+    * - **wallet_name**
+      - String containing a human-readable name of the Wallet.
+      - `OpenID4VCI`_.
+    * - **wallet_link**
+      - String containing a URL to get further information about the Wallet and the Wallet Provider.
+      - `OpenID4VCI`_.
     * - **authorization_endpoint**
       - URL of the Wallet Authorization Endpoint, it can be a universal link or a custom url-scheme.
       -
@@ -535,7 +539,7 @@ The body of the Wallet Attestation JWT MUST contain:
       -
     * - **response_modes_supported**
       - JSON array containing a list of the OAuth 2.0 "response_mode" values that this authorization server supports.
-      - :rfc:`8414`
+      - :rfc:`8414`.
     * - **vp_formats_supported**
       - JSON object with name/value pairs, identifying a Credential format supported by the Wallet.
       -
@@ -547,36 +551,7 @@ The body of the Wallet Attestation JWT MUST contain:
       -
     * - **client_id_schemes_supported**
       - Array of JSON Strings containing the values of the Client Identifier schemes that the Wallet supports.
-      - `OpenID4VP`_
-
-Revocations
-~~~~~~~~~~~~~~~~~~
-As mentioned in the *Wallet Instance initialization and registration* section above, a Wallet Instance is bound to a Wallet Hardware Key and it's uniquely identified by it.
-The Wallet Instance SHOULD send its public Wallet Hardware Key with the Wallet Provider, thus the Wallet Provider MUST identify a Wallet Instance by its Wallet Hardware Key.
-
-When a Wallet Instance is not usable anymore, the Wallet Provider MUST revoke it. The revocation process is a unilateral action taken by the Wallet Provider, and it MUST be performed when the Wallet Instance is in the `Operational` or `Valid` state.
-A Wallet Instance becomes unusable for several reasons, such as: the User requests the revocation, the Wallet Provider detects a security issue, or the Wallet Instance is no longer compliant with the Wallet Provider's security requirements.
-
-The details of the revocation mechanism used by the Wallet Provider as well as the data model for maintaining the Wallet Instance references is delegated to the Wallet Provider's implementation.
-
-According to ARF, `Section 6.5.4 <https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/arf.md#654-wallet-instance-management>`_ and more specifically in `Topic 38 <https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/annexes/annex-2/annex-2-high-level-requirements.md#a2338-topic-38---wallet-instance-revocation>`_ the Wallet Instance can be revoked by the following entities:
-
-  1. Its owner, the User
-  2. Wallet Provider
-  3. PID Provider
-
-During the *Wallet Instance initialization and registration* phase the Wallet Provider MAY associate the Wallet Instance with a specific User, subject to obtaining the User's consent. The Wallet Provider MUST evaluate the operating system and general technical capabilities of the device to check compliance with the technical and security requirements and to produce the Wallet Instance metadata.
-When the User consents to being linked with the Wallet Instance, they gain the ability to directly request Wallet revocation from the Wallet Provider, and it also allows the Wallet Provider to revoke the Wallet Instance associated with that User.
-
-Regarding the reasons for revoking a Wallet Instance, the following scenarios may occur:
-
-- The smartphone is lost;
-- The smartphone has been compromised (e.g., a malicious actor gains control of the smartphone);
-- The smartphone has been reset to factory settings;
-- Any other scenarios where the User loses the control of the Wallet Instance.
-
-If any of the previous scenarios occur, the Wallet Instance **MUST** be revoked.
-To allow the User to revoke the Wallet Instance, the Wallet Provider (WP) **MUST**  offer a remote service, such as a web page, where the User can authenticate and request the revocation of a previously activated Wallet Instance.
+      - `OpenID4VP`_.
 
 .. _token endpoint: wallet-solution.html#wallet-attestation
 .. _Wallet Attestation Request: wallet-attestation.html#format-of-the-wallet-attestation-request
