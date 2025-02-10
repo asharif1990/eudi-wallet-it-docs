@@ -116,6 +116,9 @@ wallet_provider metadata
 | wallet_trust_evidence_endpoint              | Endpoint for obtaining the Wallet                                   |
 |                                             | Trust Evidence Attestation.                                         |
 +---------------------------------------------+---------------------------------------------------------------------+
+| wallet_registration                         | Endpoint for registering the Wallet                                 |
+|                                             | Instance.                                                           |
++---------------------------------------------+---------------------------------------------------------------------+
 | grant_types_supported                       | The types of grants supported by                                    |
 |                                             | the token endpoint. It MUST be set to                               |
 |                                             | ``urn:ietf:params:oauth:client-assertion-type:                      |
