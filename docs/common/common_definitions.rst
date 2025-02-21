@@ -60,7 +60,7 @@
 .. _RFC 9449: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-dpop
 .. _OAUTH2: https://www.rfc-editor.org/rfc/rfc6749
 .. _OPENID4VC-HAIP: https://openid.net/specs/openid4vc-high-assurance-interoperability-profile-sd-jwt-vc-1_0.html
-.. _OAUTH-STATUS-ASSERTION: https://datatracker.ietf.org/doc/draft-demarco-oauth-status-assertions/02/
+.. _OAUTH-STATUS-ASSERTION: https://datatracker.ietf.org/doc/draft-demarco-oauth-status-assertions/03/
 .. _OIDC: https://openid.net/specs/openid-connect-core-1_0.html
 .. _OAUTH-MULT-RESP-TYPE: https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html
 .. _OAUTH-ATTESTATION-CLIENT-AUTH: https://datatracker.ietf.org/doc/draft-ietf-oauth-attestation-based-client-auth/03/
@@ -74,3 +74,4 @@
 .. _SPID/CIE-OpenID-Connect-Specifications: https://italia.github.io/spid-cie-oidc-docs/en
 .. _W3C.CSS-COLOR: https://www.w3.org/TR/css-color/
 .. _EU_2024/2977: https://eur-lex.europa.eu/eli/reg_impl/2024/2977/
+.. _TOKEN-STATUS-LIST: https://datatracker.ietf.org/doc/draft-ietf-oauth-status-list/07/

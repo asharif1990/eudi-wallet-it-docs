@@ -55,6 +55,8 @@ The *oauth_authorization_server* metadata MUST contain the following parameters.
     - JSON array containing a list of the supported *scope* values. See :rfc:`8414#section-2`.
   * - **response_modes_supported**
     - JSON array containing a list of the supported "response_mode" values, as specified in `OAuth 2.0 Multiple Response Type Encoding Practices <https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html>`_. The supported values MAY be *query* and *form_post.jwt* (see `JARM`_).
+  * - **response_types_supported**
+    - JSON array containing a list of the supported "response_type" values, as specified in :rfc: `8414`. The supported value MUST be *code*.
   * - **authorization_signing_alg_values_supported**
     - JSON array containing a list of the :rfc:`7515` supported signing algorithms (*alg* values). The values MUST be set according to Section :ref:`Cryptographic algorithms`. See Section 4 of `JARM`_.
   * - **grant_types_supported**
@@ -131,7 +133,10 @@ The *openid_credential_issuer* metadata MUST contain the following claims.
         - *eudi_wallet*: Member State EUDI Wallet trust framework supported.
   * - **evidence_supported**
     -  JSON array containing all types of identity evidence supported by the Credential Issuer. See `OIDC-IDA`_ Section 8. The supported value is ``vouch``.
-
+  * - **status_assertion_endpoint**
+    -  URL of the Status Assertion Endpoint. See `OAUTH-STATUS-ASSERTION`_ Section 11.1.
+  * - **credential_hash_alg_supported**
+    -  The supported algorithm used by the Wallet Instance to hash the Digital Credential for which the Status Assertion is requested. It is RECOMMENDED to use *sha-256*. See `OAUTH-STATUS-ASSERTION`_ Section 11.1.
 
 
 Metadata for openid_credential_verifier
