@@ -374,7 +374,7 @@ paths:
               example:
                 error: 'temporarily_unavailable'
                 error_description: 'The request cannot be fulfilled because the e-Service Endpoint is temporarily unavailable (e.g., due to maintainance or overload)'
-  /v0.9.0/notifyUpdateCredentials/status/{vct}:
+  /v0.9.0/notifyUpdateCredentials/status/{attribute_type}:
     post:
       tags:
         - e-services PDND
@@ -386,10 +386,10 @@ paths:
         associated.
       operationId: notifyStatusCredentials
       parameters:
-        - name: vct
+        - name: attribute_type
           in: path
           required: true
-          description: Credential identifier
+          description: Identifier of attribute claims set
           schema:
             type: string
             example: MDL
@@ -540,7 +540,7 @@ paths:
                 error: invalid_request
                 error_description: >-
                   TThe request cannot be fulfilled because the e-Service Endpoint encountered an internal problem.
-  /v0.9.0/notifyUpdateCredentials/claims/{vct}:
+  /v0.9.0/notifyUpdateCredentials/claims/{attribute_type}:
     post:
       tags:
         - e-services PDND
@@ -552,10 +552,10 @@ paths:
         associated.
       operationId: notifyClaimsCredentials
       parameters:
-        - name: vct
+        - name: attribute_type
           in: path
           required: true
-          description: Credential identifier
+          description: Identifier of attribute claims set
           schema:
             type: string
             example: MDL
