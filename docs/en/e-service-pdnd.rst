@@ -1,7 +1,9 @@
 .. include:: ../common/common_definitions.rst
 
+.. _e-service-pdnd:
+
 e-Service PDND
-+++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The `EIDAS-ARF`_ framework empowers Member States to establish the interfaces, terms, and conditions governing communication between Credential Issuers and Authentic Sources. In the Italian context, interoperability is established by leveraging the following guidelines:
 
@@ -18,7 +20,7 @@ Access to an e-Service requires Consumers to obtain a specific Access Token, kno
 .. _sec_Requirements:
 
 Requirements and Security Patterns
-========================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This specification is based on the following set of requirements:
 
@@ -54,7 +56,7 @@ This specification is based on the following set of requirements:
       - R2, R4
     * - **[ID_AUTH_CHANNEL_01]** Direct Trust Transport-Level Security (*Annex 2 - Security Patterns* [`MODI`_]): REQUIRED. It protects the communication between the Consumer and the Provider by ensuring confidentiality, integrity, identification of the Provider, and mitigation against replay attack and spoofing.
       - R1, R2
-    * - **[INTEGRITY_REST_02]** REST Payload Integrity in PDND (*Annex 2 - Security Patterns* [`MODI`_]): REQUIRED. It ensures the integrity of the payload of the REST Consumer request, within the PDND Infrastructure.
+    * - **[INTEGRITY_REST_02]** REST Payload Integrity in PDND (*Annex 2 - Security Patterns* [`MODI`_]): CONDITIONAL. It ensures the integrity of the payload of the REST Consumer request, within the PDND Infrastructure. It is REQUIRED whenever the request carries a payload.
       - R2, R4
     * - **[AUDIT_REST_02]** Submission of audit data within the REST request with correlation (*Annex 2 - Security Patterns* [`MODI`_]): OPTIONAL. The Provider MAY request additional data tracked in the Consumer's domain, with a correlation between such data and the authentication method. In that case, this pattern MUST be used.
       - R3, R4
@@ -93,8 +95,8 @@ The following security patterns defined in `PDND`_ and `MODI`_ MUST NOT be used 
 
 .. _sec_VoucherIssuance:
 
-Voucher Issuance
-==========================
+PDND Voucher Issuance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The PDND infrastructure defines two different types of Vouchers:
     
@@ -106,13 +108,13 @@ The two flows are described below.
 
 .. _sec_VoucherIssuance_eService:
 
-Voucher for e-Service
---------------------------
+PDND Voucher for e-Service
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _sec_VoucherIssuance_eService_Prerequisites:
 
-Prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Voucher for e-Services Prerequisites
+.........................................
 
 The **Consumer** MUST comply with the following prerequisites:
 
@@ -131,8 +133,8 @@ The **Provider** MUST comply with the following prerequisites:
 
 .. _sec_VoucherIssuance_eService_Flow:
 
-Flow
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Voucher for e-Services Flow
+................................
 
 .. _fig_VoucherIssuance_eService_Flow:
 
@@ -278,7 +280,7 @@ The PDND Authorization Server MUST also validate the ``client_assertion`` JWT as
     Cache-Control: no-store
 
     {
-        "access_token": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImI4MzlmNGM3LTFlNWQtNGE4YS05ZmM2LTcyZDNiN2YwOTFlYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJodHRwczovL2ludGVyb3AucGFnb3BhLml0Iiwic3ViIjoiODI5MTRiM2YtNjBiMi00NTI5LWI0ZDYtM2Q0ZTY3ZjBhOTMzIiwiYXVkIjoiaHR0cHM6Ly9lcm9nYXRvcmUuZXhhbXBsZS9lbnRlLWV4YW1wbGUvdjEiLCJleHAiOjE3MzMwNDIxNTAsIm5iZiI6MTczMzA0MTk0NSwiaWF0IjoxNzMzMDQxOTIwLCJqdGkiOiJjNGY1ZDdlMi1iN2M4LTQwZjYtOWI2YS1kYzlhNGY1YWViNTciLCJjbGllbnRfaWQiOiI4MjkxNGIzZi02MGIyLTQ1MjktYjRkNi0zZDRlNjdmMGE5MzMiLCJwdXJwb3NlSWQiOiJkMmI5YTY1My1jNDk3LTQ1YzYtYjhmMS01YmRmMTI0YzlkM2EiLCJkaWdlc3QiOnsiYWxnIjoiU0hBMjU2IiwidmFsdWUiOiI5Yzc4OTRhMGE1YTkxMDU4MGI5NjdmMzg0Y2RmYmExN2IxYWI2Zjg2NjcwZTViMGRmMThhMGM0NTNiNWViMjE1In19.p3qZh1bq67ttN6HgXVXxCOKfDBUhBTXJuI0HtE0ajaKM-bvQEdSBQP2lzxd-iC0WnHE8FcWImXh1uLrE68w26A",
+        "access_token": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImI4MzlmNGM3LTFlNWQtNGE4YS05ZmM2LTcyZDNiN2YwOTFlYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJpbnRlcm9wLnBhZ29wYS5pdCIsInN1YiI6IjgyOTE0YjNmLTYwYjItNDUyOS1iNGQ2LTNkNGU2N2YwYTkzMyIsImF1ZCI6Imh0dHBzOi8vZXJvZ2F0b3JlLmV4YW1wbGUvZW50ZS1leGFtcGxlL3YxIiwiZXhwIjoxNzMzMDQyMTUwLCJuYmYiOjE3MzMwNDE5NDUsImlhdCI6MTczMzA0MTkyMCwianRpIjoiYzRmNWQ3ZTItYjdjOC00MGY2LTliNmEtZGM5YTRmNWFlYjU3IiwiY2xpZW50X2lkIjoiODI5MTRiM2YtNjBiMi00NTI5LWI0ZDYtM2Q0ZTY3ZjBhOTMzIiwicHVycG9zZUlkIjoiZDJiOWE2NTMtYzQ5Ny00NWM2LWI4ZjEtNWJkZjEyNGM5ZDNhIiwiZGlnZXN0Ijp7ImFsZyI6IlNIQTI1NiIsInZhbHVlIjoiOTkwOGQ5NGI4ZmViMjY4YzAzNzEwNmQ3Yzg5ZTcwNjBjMmNjMWY2YjJiNGViY2I4MDViZmVlNTNhNTM5MzA3YiJ9LCJjbmYiOnsiamt0IjoiMFpjT0NPUlpOWXktRFdwcXEzMGpaeUpHSFROMGQySGdsQlYzdWlndUE0SSJ9fQ.sGhaHEOfMTB7r4_8ZILM_a9eTBGawWn3kL-dxYoZggFIzyrXDOZcQWt0zr00lMk2iYAMWxS32e4cUedmAsBXGw",
         "token_type": "DPoP",
         "expires_in": 3600
     }
@@ -310,6 +312,9 @@ The PDND Authorization Server MUST also validate the ``client_assertion`` JWT as
         "digest": {
             "alg": "SHA256",
             "value": "9c7894a0a5a910580b967f384cdfba17b1ab6f86670e5b0df18a0c453b5eb215"
+        },
+        "cnf": {
+            "jkt": "0ZcOCORZNYy-DWpqq30jZyJGHTN0d2HglBV3uiguA4I"
         }
     }
 
@@ -319,13 +324,13 @@ The PDND Authorization Server MUST also validate the ``client_assertion`` JWT as
 
 .. _sec_VoucherIssuance_InteroperabilityAPI:
 
-Voucher for Interoperability API
------------------------------------
+PDND Voucher for Interoperability API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _sec_VoucherIssuance_InteroperabilityAPI_Prerequisites:
 
-Prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Voucher for Interoperability API Prerequisites
+....................................................
 
 The **Participant** MUST comply with the following prerequisites:
 
@@ -335,8 +340,8 @@ The **Participant** MUST comply with the following prerequisites:
 
 .. _sec_VoucherIssuance_InteroperabilityAPI_Flow:
 
-Flow
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Voucher for Interoperability API Flow
+........................................
 
 .. _fig_VoucherIssuance_InteroperabilityAPI_Flow:
 
@@ -451,14 +456,14 @@ The PDND Authorization Server MUST also validate the ``client_assertion`` JWT as
 .. _sec_VoucherIssuance_Endpoint_AuthorizationServer:
 
 PDND Authorization Server Endpoint
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The PDND Authorization Server Endpoint issues Vouchers to Participants. These Vouchers allow Consumers to access e-Service resources and enable Participants to interact with the Interoperability API.
 
 .. _sec_VoucherIssuance_Endpoint_AuthorizationServer_Request:
 
-Voucher Request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Voucher Request
+..........................
 
 The request to the PDND Authorization Server Endpoint adheres to the Client Credentials Grant flow specified in :rfc:`6749`. The client authenticates itself by presenting a JWT-based client assertion as defined in :rfc:`7521` and :rfc:`7523`.
 
@@ -560,8 +565,8 @@ The ``client_assertion`` JWT MUST include the following payload claims (unless o
 
 .. _sec_VoucherIssuance_Endpoint_AuthorizationServer_Response:
 
-Voucher Response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Voucher Response
+..........................
 
 The Voucher Response MUST include the following body parameters:
 
@@ -643,6 +648,9 @@ The ``access_token`` JWT MUST include the following payload claims (unless other
     * - **digest**
       - MUST correspond to the value of the ``digest`` object contained in the Voucher Request. It is mandatory only when complying with ``AUDIT_REST_02``.
       - [`MODI`_]
+    * - **cnf**
+      - It MUST contain a **jkt** claim being JWK SHA-256 Thumbprint Confirmation Method. The value of the *jkt* member MUST be the base64url encoding (as defined in [:rfc:`7515`]) of the JWK SHA-256 Thumbprint of the DPoP public key (in JWK format) to which the Access Token is bound.
+      - [:rfc:`9449`. Section 6.1] and [:rfc:`7638`].
 
 If any errors occur during the validation of the Voucher Request, the PDND Authorization Server Endpoint MUST return an error response as defined in :rfc:`6749#section-5.2`. The response MUST use ``application/json`` as the content type and MUST include the following parameters:
 
@@ -700,12 +708,12 @@ The following table lists the HTTP Status Codes and related error codes that MUS
 .. _sec_KeyRetrieval:
 
 Key Retrieval
-==========================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _sec_KeyRetrieval_PDND:
 
-PDND Keys
------------
+PDND Authorization Server Keys
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _fig_KeyRetrieval_PDND_Flow:
 
@@ -753,15 +761,70 @@ PDND Keys
       ]
     }
 
+.. _sec_KeyRetrieval_Endpoint_WellKnown:
+
+PDND Authorization Server .well-known Endpoint
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The .well-known Endpoint is part of the PDND Infrastructure and used to retrieve the public keys used by the PDND Authorization Server to sign the Vouchers.
+
+.. _sec_KeyRetrieval_Endpoint_WellKnown_Request:
+
+PDND Authorization Server Keys Request
+.............................................
+
+The Keys Request is a ``GET`` HTTP request sent to the .well-known Endpoint. This endpoint allows Participants to retrieve the public keys necessary to verify digital signatures on Vouchers issued by the PDND Authorization Server.
+
+.. _sec_KeyRetrieval_Endpoint_WellKnown_Response:
+
+PDND Authorization Server Keys Response
+.............................................
+
+The .well-known Endpoint responds with a ``200 OK`` status code and a ``JWK Set`` [:rfc:`7517`] containing the public keys employed by the PDND Authorization Server to sign Vouchers.
+
+If any errors occur during the retrieval of the keys, the .well-known Endpoint MUST return an error response. The response MUST use ``application/json`` as the content type and MUST include the following parameters:
+
+    - ``error``: The error code.
+    - ``error_description``: Text in human-readable form providing further details to clarify the nature of the error encountered.
+
+.. code-block:: http
+    :caption: Non-normative example of a Keys Error Response
+    :name: code_KeyRetrieval_Endpoint_WellKnown_Error
+    
+    HTTP/1.1 500 Internal Server Error
+    Content-Type: application/json
+
+    {
+        "error": "server_error",
+        "error_description": "The server encountered an unexpected error."
+    }
+
+
+The following table lists the HTTP Status Codes and related error codes that MUST be supported for the error response:
+
+.. list-table:: 
+    :widths: 20 20 60
+    :header-rows: 1
+
+    * - **Status Code**
+      - **Error Code**
+      - **Description**
+    * - ``500 Internal Server Error``
+      - ``server_error``
+      - The request cannot be fulfilled because the .well-known Endpoint encountered an internal problem.
+    * - ``503 Service Unavailable``
+      - ``temporarily_unavailable``
+      - The request cannot be fulfilled because the .well-known Endpoint is temporarily unavailable (e.g., due to maintenance or overload).
+
 .. _sec_KeyRetrieval_Participant:
 
 Participants' Keys
--------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _sec_KeyRetrieval_Participant_Prerequisites:
 
-Prerequisites
-^^^^^^^^^^^^^^^^
+Participants' Key Retrieval Prerequisites
+............................................
 
 The **Participant** who requests the key MUST comply with the following prerequisites:
 
@@ -772,8 +835,8 @@ The **Participant** who requests the key MUST comply with the following prerequi
 
 .. _sec_KeyRetrieval_Participant_Flow:
 
-Flow
-^^^^^^^^^^^^^^^^
+Participants' Key Retrieval Flow
+.......................................
 
 .. _fig_KeyRetrieval_Participant_Flow:
 
@@ -819,72 +882,18 @@ Flow
 
     The Interoperability API includes an event notification endpoint that alerts subscribed Participants about changes within the PDND Infrastructure. Among these notifications, the ``/events/keys`` endpoint provides updates on modifications to cryptographic material, such as additions or deletions of keys. By leveraging this mechanism, Participants can implement a periodic polling strategy to retrieve all changed keys and update their local cache. This eliminates the need to request each key individually during the workflow.
 
-.. _sec_KeyRetrieval_Endpoint_WellKnown:
-
-.well-known Endpoint
--------------------------------------
-
-The .well-known Endpoint is part of the PDND Infrastructure and used to retrieve the public keys used by the PDND Authorization Server to sign the Vouchers.
-
-.. _sec_KeyRetrieval_Endpoint_WellKnown_Request:
-
-Keys Request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The Keys Request is a ``GET`` HTTP request sent to the .well-known Endpoint. This endpoint allows Participants to retrieve the public keys necessary to verify digital signatures on Vouchers issued by the PDND Authorization Server.
-
-.. _sec_KeyRetrieval_Endpoint_WellKnown_Response:
-
-Keys Response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The .well-known Endpoint responds with a ``200 OK`` status code and a ``JWK Set`` [:rfc:`7517`] containing the public keys employed by the PDND Authorization Server to sign Vouchers.
-
-If any errors occur during the retrieval of the keys, the .well-known Endpoint MUST return an error response. The response MUST use ``application/json`` as the content type and MUST include the following parameters:
-
-    - ``error``: The error code.
-    - ``error_description``: Text in human-readable form providing further details to clarify the nature of the error encountered.
-
-.. code-block:: http
-    :caption: Non-normative example of a Keys Error Response
-    :name: code_KeyRetrieval_Endpoint_WellKnown_Error
-    
-    HTTP/1.1 500 Internal Server Error
-    Content-Type: application/json
-
-    {
-        "error": "server_error",
-        "error_description": "The server encountered an unexpected error."
-    }
-
-
-The following table lists the HTTP Status Codes and related error codes that MUST be supported for the error response:
-
-.. list-table:: 
-    :widths: 20 20 60
-    :header-rows: 1
-
-    * - **Status Code**
-      - **Error Code**
-      - **Description**
-    * - ``500 Internal Server Error``
-      - ``server_error``
-      - The request cannot be fulfilled because the .well-known Endpoint encountered an internal problem.
-    * - ``503 Service Unavailable``
-      - ``temporarily_unavailable``
-      - The request cannot be fulfilled because the .well-known Endpoint is temporarily unavailable (e.g., due to maintenance or overload).
 
 .. _sec_KeyRetrieval_Endpoint_InteroperabilityAPI:
 
-Interoperability API Endpoint
--------------------------------------
+PDND Interoperability API Endpoint
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Interoperability API Endpoint is part of the PDND Infrastructure and used to retrieve the public keys of other parties enrolled in the PDND.
 
 .. _sec_KeyRetrieval_Endpoint_InteroperabilityAPI_Request:
 
-Key Request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Interoperability API Key Request
+.............................................
 
 The Key Request is a ``GET`` HTTP request sent to the ``/keys/<kid>`` API. This request is used to retrieve a specific key identified by its unique ``kid``.
 
@@ -903,8 +912,8 @@ The Key Request MUST include the following HTTP header parameters:
 
 .. _sec_KeyRetrieval_Endpoint_InteroperabilityAPI_Response:
 
-Key Response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PDND Interoperability API Key Response
+.............................................
 
 In case a public key with the provided ``kid`` exists, the Interoperability API Endpoint responds with a ``200 OK`` status code and a ``JWK`` [:rfc:`7517`] representing that key.
 
@@ -965,12 +974,12 @@ The following table lists the HTTP Status Codes and related error codes that MUS
 .. _sec_Usage:
 
 e-Service Usage
-===================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _sec_Usage_Prerequisites:
 
-Prerequisites
-----------------------
+e-Service Usage Prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The **Consumer** MUST comply with the following prerequisites:
 
@@ -987,8 +996,8 @@ The **Provider** MUST comply with the following prerequisites:
 
 .. _sec_Usage_Flow:
 
-Flow
--------
+e-Service Usage Flow
+~~~~~~~~~~~~~~~~~~~~~
 
 .. _fig_Usage_Flow:
 
@@ -1043,8 +1052,8 @@ Flow
 
     POST /ente-example/v1/hello/echo/ HTTP/1.1
     Host: erogatore.example
-    Authorization: DPoP eyJhbGciOiJFUzI1NiIsImtpZCI6ImI4MzlmNGM3LTFlNWQtNGE4YS05ZmM2LTcyZDNiN2YwOTFlYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJodHRwczovL2ludGVyb3AucGFnb3BhLml0Iiwic3ViIjoiODI5MTRiM2YtNjBiMi00NTI5LWI0ZDYtM2Q0ZTY3ZjBhOTMzIiwiYXVkIjoiaHR0cHM6Ly9lcm9nYXRvcmUuZXhhbXBsZS9lbnRlLWV4YW1wbGUvdjEiLCJleHAiOjE3MzMwNDIxNTAsIm5iZiI6MTczMzA0MTk0NSwiaWF0IjoxNzMzMDQxOTIwLCJqdGkiOiJjNGY1ZDdlMi1iN2M4LTQwZjYtOWI2YS1kYzlhNGY1YWViNTciLCJjbGllbnRfaWQiOiI4MjkxNGIzZi02MGIyLTQ1MjktYjRkNi0zZDRlNjdmMGE5MzMiLCJwdXJwb3NlSWQiOiJkMmI5YTY1My1jNDk3LTQ1YzYtYjhmMS01YmRmMTI0YzlkM2EiLCJkaWdlc3QiOnsiYWxnIjoiU0hBMjU2IiwidmFsdWUiOiI5Yzc4OTRhMGE1YTkxMDU4MGI5NjdmMzg0Y2RmYmExN2IxYWI2Zjg2NjcwZTViMGRmMThhMGM0NTNiNWViMjE1In19.p3qZh1bq67ttN6HgXVXxCOKfDBUhBTXJuI0HtE0ajaKM-bvQEdSBQP2lzxd-iC0WnHE8FcWImXh1uLrE68w26A
-    DPoP: eyJ0eXAiOiJkcG9wK2p3dCIsImFsZyI6IkVTMjU2IiwiandrIjp7Imt0eSI6IkVDIiwia2V5X29wcyI6WyJzaWduIl0sImtpZCI6IjM5ZmE5NjBiLTc3M2YtNDllZi04YTBlLWU3NzNlOWI5N2FlOCIsImNydiI6IlAtMjU2IiwieCI6Imh1eVhJUU52OTAyb0xzcFg0X3pvbkM5NEc2eUVsbjZsc2RtLTF3TTczMm8iLCJ5IjoiSTlQREVhd1dIcWFGREd4MVprTmstMlBWNldkcGNhSDNBZk9iQlNMaWhndyJ9fQ.eyJqdGkiOiIyYzc2ZmNhMy1jYjRlLTQzMTItOGI2ZS05NzQ5NDYyZjQyMGQiLCJodG0iOiJQT1NUIiwiYXRoIjoiODVLUnZsaDkxRFg4MEhmZTJKVXRGLTJXUVRTbEh3WXNJcjQ2VE9PVW5WcyIsImh0dSI6Imh0dHBzOi8vZXJvZ2F0b3JlLmV4YW1wbGUvZW50ZS1leGFtcGxlL3YxIiwiaWF0IjoxNzYyMjYyNjE2fQ.i6lX-dGbdMBjvp3h4v9g2wfOrH9hojcAJV_ViGSETiLrz4QN4sDmzMzD7sUvru1thz7wzJ6Y5CkKUyOYIgVGgQ
+    Authorization: DPoP eyJhbGciOiJFUzI1NiIsImtpZCI6ImI4MzlmNGM3LTFlNWQtNGE4YS05ZmM2LTcyZDNiN2YwOTFlYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJpbnRlcm9wLnBhZ29wYS5pdCIsInN1YiI6IjgyOTE0YjNmLTYwYjItNDUyOS1iNGQ2LTNkNGU2N2YwYTkzMyIsImF1ZCI6Imh0dHBzOi8vZXJvZ2F0b3JlLmV4YW1wbGUvZW50ZS1leGFtcGxlL3YxIiwiZXhwIjoxNzMzMDQyMTUwLCJuYmYiOjE3MzMwNDE5NDUsImlhdCI6MTczMzA0MTkyMCwianRpIjoiYzRmNWQ3ZTItYjdjOC00MGY2LTliNmEtZGM5YTRmNWFlYjU3IiwiY2xpZW50X2lkIjoiODI5MTRiM2YtNjBiMi00NTI5LWI0ZDYtM2Q0ZTY3ZjBhOTMzIiwicHVycG9zZUlkIjoiZDJiOWE2NTMtYzQ5Ny00NWM2LWI4ZjEtNWJkZjEyNGM5ZDNhIiwiZGlnZXN0Ijp7ImFsZyI6IlNIQTI1NiIsInZhbHVlIjoiOTkwOGQ5NGI4ZmViMjY4YzAzNzEwNmQ3Yzg5ZTcwNjBjMmNjMWY2YjJiNGViY2I4MDViZmVlNTNhNTM5MzA3YiJ9LCJjbmYiOnsiamt0IjoiMFpjT0NPUlpOWXktRFdwcXEzMGpaeUpHSFROMGQySGdsQlYzdWlndUE0SSJ9fQ.sGhaHEOfMTB7r4_8ZILM_a9eTBGawWn3kL-dxYoZggFIzyrXDOZcQWt0zr00lMk2iYAMWxS32e4cUedmAsBXGw
+    DPoP: eyJ0eXAiOiJkcG9wK2p3dCIsImFsZyI6IkVTMjU2IiwiandrIjp7Imt0eSI6IkVDIiwia2V5X29wcyI6WyJzaWduIl0sImtpZCI6IjM5ZmE5NjBiLTc3M2YtNDllZi04YTBlLWU3NzNlOWI5N2FlOCIsImNydiI6IlAtMjU2IiwieCI6Imh1eVhJUU52OTAyb0xzcFg0X3pvbkM5NEc2eUVsbjZsc2RtLTF3TTczMm8iLCJ5IjoiSTlQREVhd1dIcWFGREd4MVprTmstMlBWNldkcGNhSDNBZk9iQlNMaWhndyJ9fQ.eyJqdGkiOiIyYzc2ZmNhMy1jYjRlLTQzMTItOGI2ZS05NzQ5NDYyZjQyMGQiLCJodG0iOiJQT1NUIiwiYXRoIjoiM2UwOGRlMWQwYTNkZjIzNWZjZmNjZjYyNjdmYTUwYTU5YmEyYTk1NTI2YzdjZTY3MDY1YjhlMjZkYmI5NDQ1MSIsImh0dSI6Imh0dHBzOi8vZXJvZ2F0b3JlLmV4YW1wbGUvZW50ZS1leGFtcGxlL3YxIiwiaWF0IjoxNzYyMjYyNjE2fQ.kvXh8H9B5DWCNlWyNB_PzRH217j1NHnIkE_55WnEixt2RbQTGrCS6AFAznREA85dzqwAAaHb_qHtDc5BR0lLmQ
     Agid-JWT-Signature: eyJhbGciOiJFUzI1NiIsImtpZCI6ImQ0YzNiMmExLTk4NzYtNTQzMi0xMGZlLWRjYmE5ODc2NTQzMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI5YThiN2M2ZC1lNWY0LWczaDItaTFqMC1rbG1ub3BxcnN0dXYiLCJzdWIiOiI5YThiN2M2ZC1lNWY0LWczaDItaTFqMC1rbG1ub3BxcnN0dXYiLCJhdWQiOiJodHRwczovL2Vyb2dhdG9yZS5leGFtcGxlL2VudGUtZXhhbXBsZS92MSIsImlhdCI6MTczMzM5Nzg0MCwibmJmIjoxNzMzNDAxNjI4LCJleHAiOjE3MzM0MDE0NDAsImp0aSI6ImQzZjdiMmM5LTI3NGEtNDJiNy04ZjhkLTJlOWQ4YjE3MzRiMCIsInNpZ25lZF9oZWFkZXJzIjpbeyJkaWdlc3QiOiJTSEEtMjU2PTcyZTE4YmRkZGYxM2M5MTFiNGRkNTYyZWUyMTk3OWE1YzlmMjM1YzNhMDFiZDE0MjZlODU3ZDhjMWEyODJmNDEifSx7ImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL2pzb24ifV19.DpuBNo2UgQhL7WLin4mpdZrbIpQq3tPvCX6HfktkxG7L5mk6a8OK1Hg0mQcZfFi3gelS-aL9kFS-6MoSy4csBg
     Digest: SHA-256=72e18bdddf13c911b4dd562ee21979a5c9f235c3a01bd1426e857d8c1a282f41
     Agid-JWT-TrackingEvidence: eyJhbGciOiJFUzI1NiIsImtpZCI6ImQ0YzNiMmExLTk4NzYtNTQzMi0xMGZlLWRjYmE5ODc2NTQzMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4MjkxNGIzZi02MGIyLTQ1MjktYjRkNi0zZDRlNjdmMGE5MzMiLCJhdWQiOiJodHRwczovL2Vyb2dhdG9yZS5leGFtcGxlL2VudGUtZXhhbXBsZS92MSIsImV4cCI6MTczMzA1MjYwMCwibmJmIjoxNzMzMDM2NDUwLCJpYXQiOjE3MzMwMzY0MDAsImp0aSI6ImE0YjVjNmQ3LWU4ZjktYWJjZC1lZjEyLTM0NTY3ODkwMTIzNCIsImRub25jZSI6NjUyODQyNDIxMzY4NSwicHVycG9zZUlkIjoiYjJjM2Q0ZTUtZjZnNy1oOGk5LWowazEtbG1ubzEyMzQ1Njc4IiwidXNlcklEIjoiYThiN2M2ZDUtZTRmMy1nMmgxLWk5ajAta2xtbm9wcXJzdHV2IiwibG9hIjoic3Vic3RhbnRpYWwifQ.bhb3f3aWEuK-bZWjyKRWrJ4hYUWhw2SQ-yRz0kUFjPQTVagjXuTqyhxsHO4KXeSX9SivgaLSvw4n9BeZa7APbQ
@@ -1073,6 +1082,7 @@ The Provider MUST validate the Voucher as follows:
         - The ``iss`` claim MUST identify the domain of the PDND Authorization Server.
         - The ``sub`` claim MUST correspond to the ``client_id`` claim.
         - The ``aud`` claim MUST match the intended e-Service.
+        - The ``cnf.jkt`` claim MUST correspond to the SHA-256 Thumbprint of the DPoP public key in the ``jwk`` claim in the DPoP proof.
 
 .. note:: 
 
@@ -1181,12 +1191,12 @@ The Consumer MUST perform the following steps to validate the e-Service Response
 .. _sec_Usage_Endpoint_eService:
 
 e-Service Endpoint
--------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. _sec_Usage_Endpoint_eService_Request:
 
 e-Service Request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.......................
 
 The e-Service Request MUST include the following HTTP header parameters (unless otherwise specified):
 
@@ -1327,7 +1337,7 @@ The ``TrackingEvidence`` payload MUST also contains the tracked data agreed upon
 .. _sec_Usage_Endpoint_eService_Response:
 
 e-Service Response
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...........................
 
 The e-Service Response is a JWT serialized in ``application/jwt`` format.
 

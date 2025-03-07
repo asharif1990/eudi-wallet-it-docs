@@ -38,6 +38,8 @@ Preview of other branches can be navigated by adding the branch name in the webp
 
 Released versions can be navigated by adding the tag in the webpath leaded by a _v_, as follows:
 
+ - [https://italia.github.io/eudi-wallet-it-docs/v0.9.3/en/](https://italia.github.io/eudi-wallet-it-docs/v0.9.3/en/)
+ - [https://italia.github.io/eudi-wallet-it-docs/v0.9.2/en/](https://italia.github.io/eudi-wallet-it-docs/v0.9.2/en/)
  - [https://italia.github.io/eudi-wallet-it-docs/v0.9.1/en/](https://italia.github.io/eudi-wallet-it-docs/v0.9.1/en/)
  - [https://italia.github.io/eudi-wallet-it-docs/v0.9.0/en/](https://italia.github.io/eudi-wallet-it-docs/v0.9.0/en/)
  - [https://italia.github.io/eudi-wallet-it-docs/v0.8.2/en/](https://italia.github.io/eudi-wallet-it-docs/v0.8.2/en/)
@@ -49,23 +51,13 @@ Released versions can be navigated by adding the tag in the webpath leaded by a 
  - [https://italia.github.io/eudi-wallet-it-docs/v0.5.0/en/](https://italia.github.io/eudi-wallet-it-docs/v0.5.0/en/)
  - [https://italia.github.io/eudi-wallet-it-docs/v0.4.1/en/](https://italia.github.io/eudi-wallet-it-docs/v0.4.1/en/)
 
-
-## Documentation
-
-This repository is structured to be compliant with 
-[Docs Italia](https://docs.italia.it/italia/developers-italia/publiccodeyml/it/master/index.html).
-This is why the content of the relevant folders will be compiled and rendered inside such platform.
-`Docs Italia` is designed to support documents, localized in different languages and for this
-reason it is the reference platform for displaying this standard.
-
-
 ## Build
 
 HTML
 ````
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 
-sphinx-build -b html -d html/en/doctrees docs/en/  html/en
+sphinx-build -b html -d html/en/doctrees docs/en/ html/en
 ````
 
 ODT
