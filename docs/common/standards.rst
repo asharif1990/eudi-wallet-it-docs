@@ -19,6 +19,10 @@ Technical References
       - Terbu, O., Lodderstedt, T., Yasuda, K., Looker, T., "OpenID for Verifiable Presentations", December 2024, Draft 23.
     * - `PresentationExch`_
       - Presentation Exchange 2.0 for Presentation Definition.
+    * - :rfc:`1950`
+      - Deutsch, P., Gailly, J-L., "ZLIB Compressed Data Format Specification version 3.3", RFC 1950, May 1996.    
+    * - :rfc:`1951`
+      - Deutsch, P., "DEFLATE Compressed Data Format Specification version 1.3", RFC 1951, May 1996.   
     * - :rfc:`2119`
       - Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels" BCP 14, RFC 2119, March 1997.
     * - :rfc:`2616`
@@ -67,7 +71,7 @@ Technical References
       - Looker, T., Bastian, P., "OAuth 2.0 Attestation-Based Client Authentication", May 2024, Draft 3.    
     * - `OAUTH-MULT-RESP-TYPE`_
       - de Medeiros, B., Scurtescu, M., Tarjan, P., Jones, M., "OAuth 2.0 Multiple Response Type Encoding Practices", February 2014.
-    * - ISO18013-5
+    * - `ISO18013-5`_
       - ISO/IEC 18013-5 2020. Information technology — Personal identification — ISO-compliant driving license — Part 5: Mobile driving license (mDL) application. International Organization for Standardization.
     * - `OIDC`_
       - Sakimura, N., Bradley, J., Jones, M.,  de Medeiros, B., Mortimore, C., "OpenID Connect Core 1.0 incorporating errata set 2", December 2023.
@@ -90,4 +94,4 @@ Technical References
     * - `OpenID4VC-SecTrust`_
       - Fett, D., Lodderstedt, T.,  "Security and Trust in OpenID for Verifiable Credentials Ecosystems", March 2024.
     * - `TOKEN-STATUS-LIST`_
-      - Tobias Looker and Paul Bastian and Christian Bormann,  "Token Status List", February 2025, Draft 7.
+      - Tobias Looker and Paul Bastian and Christian Bormann, "Token Status List", March 2025, Draft 10.
