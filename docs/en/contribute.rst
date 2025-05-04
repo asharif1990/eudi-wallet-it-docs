@@ -17,7 +17,7 @@ Below are several methods available for contributing to this project:
 
 
 Acknowledgements
-----------------
++++++++++++++++++++++++++++
 
 We would like to thank the following individuals for their comments,
 concerns, ideas, contributions, some of which substantial, to this
@@ -27,6 +27,7 @@ implementation profile and to the initial set of implementations.
 - Amir Sharif
 - Andrea Moro
 - Andrea Prosseda
+- Chris Phillips
 - Elisa Nicolussi Paolaz
 - Emanuele De Cupis
 - Emiliano Vernini
@@ -40,13 +41,17 @@ implementation profile and to the initial set of implementations.
 - Kristina Yasuda
 - Leif Johansson
 - Lorenzo Cerini
+- Marco Basili
+- Marco Pernpruner
 - Mart Aarma
 - Marta Sciunnach
+- Matteo Fortini
 - Michele Silletti
 - Nicola Saitto
 - Niels van Dijk
 - Oliver Terbu
 - Paul Bastien
+- Pasquale Cerqua
 - Pasquale De Rose
 - Peter Altmann
 - Riccardo Iaconelli
@@ -57,11 +62,9 @@ implementation profile and to the initial set of implementations.
 - Takahiko Kawasaki
 - Thomas Chiozzi
 - Torsten Lodderstedt
+- Valerio Bozzolan
 - Vladimir Duzhinov
-- Marco Pernpruner
 - Zahra Ebadi Ansaroudi
-- Marco Basili
-- Chris Phillips
 
 
 If anyone has been forgotten, please accept our apologies with the
