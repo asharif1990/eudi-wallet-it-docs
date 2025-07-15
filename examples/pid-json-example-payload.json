@@ -34,7 +34,7 @@
   "family_name": "Rossi",
   "birth_date": "1980-01-10",
   "birth_place": "Roma",
-  "nationality": "IT",
+  "nationalities": ["IT"],
   "personal_administrative_number": "XX00000XX",
   "tax_id_code": "TINIT-XXXXXXXXXXXXXXXX"
 }

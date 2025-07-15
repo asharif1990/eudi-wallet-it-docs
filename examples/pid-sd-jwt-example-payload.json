@@ -5,7 +5,6 @@
     "VQI-S1mT1Kxfq2o8J9io7xMMX2MIxaG9M9PeJVqrMcA",
     "Yrc-s-WSr4exEYtqDEsmRl7spoVfmBxixP12e4syqNE",
     "h7Egl5H9gTPC_FCU845aadvsC--dTjy9Nrstxh-caRo",
-    "hP79TuWGBwIN0j9NH_fxn8Cvj-dNH_R7nFleeWCE2I4",
     "s1XK5f2pM3-aFTauXhmvd9pyQTJ6FMUhc-JXfHrxhLk",
     "tSL-e1nLdWOU9sFMTCUu5P1tCzxA-TW-VWbHGzYtU7E",
     "zVdghcmClMVWlUgGsGpSkCPkEHZ4u9oWj1SlIBlCc1o"
@@ -20,6 +19,11 @@
       "credential_hash_alg": "sha-256"
     }
   },
+  "nationalities": [
+    {
+      "...": "yKeP1CWTQK8Sd9BeNvFhkLXgEu/1G3QQz4CWSlqEOFw"
+    }
+  ],
   "vct": "https://trust-registry.eid-wallet.example.it/credentials/v1.0/personidentificationdata",
   "vct#integrity": "c5f73e250fe869f24d15118acce286c9bb56b63a443dc85af653cd73f6078b1f",
   "_sd_alg": "sha-256",

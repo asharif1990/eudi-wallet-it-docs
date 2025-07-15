@@ -28,9 +28,9 @@ This project adheres to the [*Semantic
 Versioning*](https://semver.org/) model.
 
 Furthermore, this project uses the git *branches* and *tags* in the following way:
-* the branch `versione-corrente` contains the last stable version of the standard;
+* the branch `versione-corrente` contains the last stable version of the documentation;
 * The [release page](https://github.com/italia/eid-wallet-it-docs/releases) of
-  GitHub contains all the released versions of the specifications. For the sake of coherence, the *releases* are made according to the tag names.
+  this project contains all the released versions of the specifications. For the sake of coherence, the *releases* are made according to the tag names.
 
 Each time a release is created or edited, a preview is built based on the tag the release refers to. 
 A preview of the latest editor's copy build, corresponding to the branch `versione-corrente` can be navigated using the following link:
@@ -76,7 +76,8 @@ pandoc -o eid-it-wallet-docs.odt index.html
 
 ## How to contribute
 
-If you encounter problems or errors, if you’d like to comment or suggest an edit, don’t hesitate to contribute by submitting a [Pull Requests or raise Issues](CONTRIBUTING.md), or exploring existing issues.
+
+Refer to [Contributing Rules Section](CONTRIBUTING-RULES.md) for an editorial guideline. Don't hesitate to submit [Pull Requests or raise Issues](CONTRIBUTING.md) if you encounter any problems.
 
 
 ## Authors
