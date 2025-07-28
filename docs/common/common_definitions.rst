@@ -56,6 +56,7 @@
 .. _RFC 2898: http://tools.ietf.org/html/rfc2898.html
 .. _RFC 9449: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-dpop
 .. _RFC 5280: https://datatracker.ietf.org/doc/html/rfc5280
+.. _RFC 7763: https://www.rfc-editor.org/rfc/rfc7763.html
 .. _SD-JWT-VC: https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/06/
 .. _SD-JWT: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-14
 .. _Secure Enclave: https://support.apple.com/en-gb/guide/security/sec59b0b31ff/web

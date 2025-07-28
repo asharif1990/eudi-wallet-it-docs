@@ -181,10 +181,10 @@
         }
       },
       {
-        "docType": "org.iso.18013.5.1.IT.WalletAttestation",
+        "docType": "it.wallet.trust-registry.WalletAttestation",
         "issuerSigned": {
           "nameSpaces": {
-            "org.iso.18013.5.1.IT": [
+            "it.wallet.trust-registry.WalletAttestation": [
               24(<<
                 {
                   "digestID": 0,
