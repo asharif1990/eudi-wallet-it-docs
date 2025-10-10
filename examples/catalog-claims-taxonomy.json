@@ -10,17 +10,7 @@
   },
   "name_l10n_id": "taxonomy.claims.name",
   "description_l10n_id": "taxonomy.claims.description",
-  "domains": [
-    {
-      "id": "IDENTITY",
-      "name_l10n_id": "domain.identity.name",
-      "description_l10n_id": "domain.identity.description",
-      "categories": [
-        {
-          "id": "PERSONAL_DATA",
-          "name_l10n_id": "category.personal_data.name",
-          "description_l10n_id": "category.personal_data.description",
-          "claims": [
+  "claims": [
             {
               "id": "given_name",
               "name_l10n_id": "claim.given_name.name",
@@ -48,14 +38,7 @@
               "description_l10n_id": "claim.place_of_birth.description",
               "sensitivity": "RESTRICTED",
               "type": "structured"
-            }
-          ]
-        },
-        {
-          "id": "CONTACT_INFO",
-          "name_l10n_id": "category.contact_info.name",
-          "description_l10n_id": "category.contact_info.description",
-          "claims": [
+            },
             {
               "id": "email",
               "name_l10n_id": "claim.email.name",
@@ -76,14 +59,7 @@
               "description_l10n_id": "claim.address.description",
               "sensitivity": "RESTRICTED",
               "type": "structured"
-            }
-          ]
-        },
-        {
-          "id": "IDENTIFIERS",
-          "name_l10n_id": "category.identifiers.name",
-          "description_l10n_id": "category.identifiers.description",
-          "claims": [
+            },
             {
               "id": "tax_id",
               "name_l10n_id": "claim.tax_id.name",
@@ -97,28 +73,14 @@
               "description_l10n_id": "claim.personal_administrative_number.description",
               "sensitivity": "RESTRICTED",
               "type": "simple"
-            }
-          ]
-        },
-        {
-          "id": "BIOMETRIC",
-          "name_l10n_id": "category.biometric.name",
-          "description_l10n_id": "category.biometric.description",
-          "claims": [
+            },
             {
               "id": "portrait",
               "name_l10n_id": "claim.portrait.name",
               "description_l10n_id": "claim.portrait.description",
               "sensitivity": "SENSITIVE",
               "type": "simple"
-            }
-          ]
-        },
-        {
-          "id": "DOCUMENTS",
-          "name_l10n_id": "category.documents.name",
-          "description_l10n_id": "category.documents.description",
-          "claims": [
+            },
             {
               "id": "document_type",
               "name_l10n_id": "claim.document_type.name",
@@ -153,21 +115,7 @@
               "description_l10n_id": "claim.issuing_jurisdiction.description",
               "sensitivity": "PUBLIC",
               "type": "simple"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "AUTHORIZATION",
-      "name_l10n_id": "domain.authorization.name",
-      "description_l10n_id": "domain.authorization.description",
-      "categories": [
-        {
-          "id": "DRIVING_LICENSE",
-          "name_l10n_id": "category.driving_license.name",
-          "description_l10n_id": "category.driving_license.description",
-          "claims": [
+            },
             {
               "id": "driving_privileges",
               "name_l10n_id": "claim.driving_privileges.name",
@@ -181,21 +129,7 @@
               "description_l10n_id": "claim.vehicle_category_code.description",
               "sensitivity": "PUBLIC",
               "type": "simple"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "FINANCIAL",
-      "name_l10n_id": "domain.financial.name", 
-      "description_l10n_id": "domain.financial.description",
-      "categories": [
-        {
-          "id": "INCOME",
-          "name_l10n_id": "category.income.name",
-          "description_l10n_id": "category.income.description",
-          "claims": [
+            },
             {
               "id": "income_indicator",
               "name_l10n_id": "claim.income_indicator.name",
@@ -216,22 +150,8 @@
               "description_l10n_id": "claim.reference_period.description",
               "sensitivity": "RESTRICTED",
               "type": "simple"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "COMMON",
-      "name_l10n_id": "domain.common.name",
-      "description_l10n_id": "domain.common.description",
-      "categories": [
-        {
-          "id": "VALIDITY",
-          "name_l10n_id": "category.validity.name",
-          "description_l10n_id": "category.validity.description",
-          "claims": [
-            {
+            },
+                        {
               "id": "issuance_date",
               "name_l10n_id": "claim.issuance_date.name",
               "description_l10n_id": "claim.issuance_date.description",
@@ -253,8 +173,4 @@
               "type": "simple"
             }
           ]
-        }
-      ]
-    }
-  ]
 }
