@@ -149,7 +149,9 @@
                         ],
                         "claims": [
                             {
-                                "path": ["document_number"],
+                                "path": [
+                                    "document_number"
+                                ],
                                 "display": [
                                     {
                                         "name": "Numero Documento",
@@ -162,7 +164,9 @@
                                 ]
                             },
                             {
-                                "path": ["given_name"],
+                                "path": [
+                                    "given_name"
+                                ],
                                 "display": [
                                     {
                                         "name": "Nome",
@@ -175,7 +179,9 @@
                                 ]
                             },
                             {
-                                "path": ["family_name"],
+                                "path": [
+                                    "family_name"
+                                ],
                                 "display": [
                                     {
                                         "name": "Cognome",
@@ -188,7 +194,9 @@
                                 ]
                             },
                             {
-                                "path": ["birth_date"],
+                                "path": [
+                                    "birth_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di Nascita (YYYY-MM-GG)",
@@ -201,7 +209,9 @@
                                 ]
                             },
                             {
-                                "path": ["personal_administrative_number"],
+                                "path": [
+                                    "personal_administrative_number"
+                                ],
                                 "display": [
                                     {
                                         "name": "Codice Fiscale",
@@ -214,7 +224,9 @@
                                 ]
                             },
                             {
-                                "path": ["expiry_date"],
+                                "path": [
+                                    "expiry_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di Scadenza (YYYY-MM-GG)",
@@ -227,7 +239,9 @@
                                 ]
                             },
                             {
-                                "path": ["constant_attendance_allowance"],
+                                "path": [
+                                    "constant_attendance_allowance"
+                                ],
                                 "display": [
                                     {
                                         "name": "Diritto accompagnatore",
@@ -240,7 +254,9 @@
                                 ]
                             },
                             {
-                                "path": ["portrait"],
+                                "path": [
+                                    "portrait"
+                                ],
                                 "display": [
                                     {
                                         "name": "Foto codificata in base64",
@@ -253,7 +269,9 @@
                                 ]
                             },
                             {
-                                "path": ["link_qr_code"],
+                                "path": [
+                                    "link_qr_code"
+                                ],
                                 "display": [
                                     {
                                         "name": "Link QR Code",
@@ -290,7 +308,7 @@
                     },
                     "vct": "urn:eudi:mDL:it:1",
                     "schema_uri": "https://trust-registry.eid-wallet.example.it/.well-known/schemas/sd-jwt/mDL",
-                    "schema_uri#integrity": "sha256-0a03d9ffe11e39fd748585e433a962f223d7d14b0a49068ad52452bd0b021f63",                   
+                    "schema_uri#integrity": "sha256-0a03d9ffe11e39fd748585e433a962f223d7d14b0a49068ad52452bd0b021f63",
                     "credential_metadata": {
                         "display": [
                             {
@@ -304,7 +322,9 @@
                         ],
                         "claims": [
                             {
-                                "path": ["given_name"],
+                                "path": [
+                                    "given_name"
+                                ],
                                 "display": [
                                     {
                                         "name": "Nome",
@@ -314,10 +334,12 @@
                                         "name": "First Name",
                                         "locale": "en-US"
                                     }
-                                ]   
+                                ]
                             },
                             {
-                                "path": ["family_name"],
+                                "path": [
+                                    "family_name"
+                                ],
                                 "display": [
                                     {
                                         "name": "Cognome",
@@ -330,7 +352,9 @@
                                 ]
                             },
                             {
-                                "path": ["birth_date"],
+                                "path": [
+                                    "birth_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di nascita (YYYY-MM-GG)",
@@ -343,7 +367,9 @@
                                 ]
                             },
                             {
-                                "path": ["place_of_birth"],
+                                "path": [
+                                    "place_of_birth"
+                                ],
                                 "display": [
                                     {
                                         "name": "Luogo di Nascita",
@@ -356,7 +382,9 @@
                                 ]
                             },
                             {
-                                "path": ["issue_date"],
+                                "path": [
+                                    "issue_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di rilascio (YYYY-MM-GG)",
@@ -368,8 +396,10 @@
                                     }
                                 ]
                             },
-                            {   
-                                "path": ["expiry_date"],
+                            {
+                                "path": [
+                                    "expiry_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di scadenza (YYYY-MM-GG)",
@@ -382,7 +412,9 @@
                                 ]
                             },
                             {
-                                "path": ["issuing_country"], 
+                                "path": [
+                                    "issuing_country"
+                                ],
                                 "display": [
                                     {
                                         "name": "Paese di rilascio",
@@ -395,7 +427,9 @@
                                 ]
                             },
                             {
-                                "path": ["issuing_authority"],
+                                "path": [
+                                    "issuing_authority"
+                                ],
                                 "display": [
                                     {
                                         "name": "Autorità di rilascio",
@@ -408,7 +442,9 @@
                                 ]
                             },
                             {
-                                "path": ["document_number"],
+                                "path": [
+                                    "document_number"
+                                ],
                                 "display": [
                                     {
                                         "name": "Numero di documento",
@@ -421,7 +457,9 @@
                                 ]
                             },
                             {
-                                "path": ["portrait"],
+                                "path": [
+                                    "portrait"
+                                ],
                                 "display": [
                                     {
                                         "name": "Foto codificata in base64",
@@ -434,7 +472,9 @@
                                 ]
                             },
                             {
-                                "path": ["driving_privileges"],
+                                "path": [
+                                    "driving_privileges"
+                                ],
                                 "display": [
                                     {
                                         "name": "Elenco delle categorie di abilitazione separate da spazio",
@@ -447,7 +487,9 @@
                                 ]
                             },
                             {
-                                "path": ["restrictions_conditions"],
+                                "path": [
+                                    "restrictions_conditions"
+                                ],
                                 "display": [
                                     {
                                         "name": "Annotazioni/Restrizioni valide per tutte le categorie separate da spazio",
@@ -460,7 +502,9 @@
                                 ]
                             },
                             {
-                                "path": ["driving_privileges_details"],
+                                "path": [
+                                    "driving_privileges_details"
+                                ],
                                 "display": [
                                     {
                                         "name": "Dettagli delle categorie di abilitazione",
@@ -473,7 +517,7 @@
                                 ]
                             }
                         ]
-                    }  
+                    }
                 },
                 "mso_mdoc_mDL": {
                     "format": "mso_mdoc",
@@ -502,7 +546,10 @@
                         ],
                         "claims": [
                             {
-                                "path": ["org.iso.18013.5.1", "given_name"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "given_name"
+                                ],
                                 "display": [
                                     {
                                         "name": "Nome",
@@ -515,7 +562,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "family_name"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "family_name"
+                                ],
                                 "display": [
                                     {
                                         "name": "Cognome",
@@ -528,7 +578,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "birth_date"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "birth_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di nascita (YYYY-MM-GG)",
@@ -541,7 +594,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "birth_place"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "birth_place"
+                                ],
                                 "display": [
                                     {
                                         "name": "Luogo di Nascita",
@@ -554,7 +610,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "issue_date"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "issue_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di rilascio (YYYY-MM-GG)",
@@ -566,8 +625,11 @@
                                     }
                                 ]
                             },
-                            {    
-                                "path": ["org.iso.18013.5.1", "expiry_date"],
+                            {
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "expiry_date"
+                                ],
                                 "display": [
                                     {
                                         "name": "Data di scadenza (YYYY-MM-GG)",
@@ -580,7 +642,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "issuing_country"], 
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "issuing_country"
+                                ],
                                 "display": [
                                     {
                                         "name": "Paese di rilascio",
@@ -593,7 +658,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "issuing_authority"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "issuing_authority"
+                                ],
                                 "display": [
                                     {
                                         "name": "Autorità di rilascio",
@@ -606,7 +674,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "document_number"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "document_number"
+                                ],
                                 "display": [
                                     {
                                         "name": "Numero di documento",
@@ -619,7 +690,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "portrait"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "portrait"
+                                ],
                                 "display": [
                                     {
                                         "name": "Foto codificata in base64",
@@ -632,7 +706,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "driving_privileges"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "driving_privileges"
+                                ],
                                 "display": [
                                     {
                                         "name": "Elenco delle categorie di abilitazione e relativi dettagli su restrizioni/condizioni",
@@ -645,7 +722,10 @@
                                 ]
                             },
                             {
-                                "path": ["org.iso.18013.5.1", "un_distinguishing_sign"],
+                                "path": [
+                                    "org.iso.18013.5.1",
+                                    "un_distinguishing_sign"
+                                ],
                                 "display": [
                                     {
                                         "name": "Codice identificativo della Nazione",
@@ -682,19 +762,18 @@
             ]
         },
         "openid_credential_verifier": {
-            ## see relying party metadata section and endpoints
-            },
-            "jwks": {
-                "keys": [
-                    {
-                        "kid": "f10aca0992694b3581f6f699bfc8a2c6cc687725",
-                        "kty": "EC",
-                        "crv": "P-256",
-                        "x": "jE2RpcQbFQxKpMqehahgZv6smmXD0i/LTP2QRzMADk4",
-                        "y": "qkMx5iqt5PhPu5tfctS6HsP+FmLgrxfrzUV2GwMQuh8"
-                    }
-                ]
-            }
+            // see relying party metadata section and endpoints
+        },
+        "jwks": {
+            "keys": [
+                {
+                    "kid": "f10aca0992694b3581f6f699bfc8a2c6cc687725",
+                    "kty": "EC",
+                    "crv": "P-256",
+                    "x": "jE2RpcQbFQxKpMqehahgZv6smmXD0i/LTP2QRzMADk4",
+                    "y": "qkMx5iqt5PhPu5tfctS6HsP+FmLgrxfrzUV2GwMQuh8"
+                }
+            ]
         }
     }
 }
