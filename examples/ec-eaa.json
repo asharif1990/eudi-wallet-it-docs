@@ -104,17 +104,15 @@
             "credential_endpoint": "https://eaa-provider.example.org/credential",
             "nonce_endpoint": "https://eaa-provider.example.org/nonce-endpoint",
             "deferred_credential_endpoint": "https://eaa-provider.example.org/deferred-credential",
-            "revocation_endpoint": "https://eaa-provider.example.org/revoke",
-            "status_assertion_endpoint": "https://eaa-provider.example.org/status",
             "notification_endpoint": "https://eaa-provider.example.org/notification",
-            "credential_hash_alg_supported": "sha-256",
             "display": [
                 {
                     "name": "EAA Provider",
                     "locale": "it-IT",
                     "logo": {
                         "uri": "https://eaa-provider.example.org/public/compact-logo-IT.svg",
-                        "uri#integrity": "2Rltygo7bKBE4E498tb/lLn9DIkimBhrzrsUERyUQjo="
+                        "uri#integrity": "2Rltygo7bKBE4E498tb/lLn9DIkimBhrzrsUERyUQjo=",
+                        "alt_text": "Testo alternativo all'immagine del logo"
                     }
 
                 },
@@ -123,7 +121,8 @@
                     "locale": "en-US",
                     "logo": {
                         "uri": "https://eaa-provider.example.org/public/compact-logo-US.svg",
-                        "uri#integrity": "mBQEi42aj0VYnFngpOjbqJGkuCnB5LmbZRnWpO+AHqUBVQxOe9kMIPOz+pSjRArE"
+                        "uri#integrity": "mBQEi42aj0VYnFngpOjbqJGkuCnB5LmbZRnWpO+AHqUBVQxOe9kMIPOz+pSjRArE",
+                        "alt_text": "Alternative text for the logo image"
                     }
                 }
             ],
@@ -145,7 +144,11 @@
                                 "ES256",
                                 "ES384",
                                 "ES512"
-                            ]
+                            ],
+                            "key_attestations_required": {
+                            "key_storage": [ "iso_18045_enhanced-basic" ],
+                            "user_authentication": [ "iso_18045_enhanced-basic" ]
+                            }
                         }
                     },
                     "vct": "urn:eudi:EuropeanDisabilityCard:it:1",
@@ -931,9 +934,7 @@
                 "it_wallet",
                 "eudi_wallet"
             ],
-            "evidence_supported": [
-                "vouch"
-            ]
+            "status_list_aggregation_endpoint": "https://eaa-provider.example.org/statuslists/aggregation"
         },
         "openid_credential_verifier": {
             // see relying party metadata section and endpoints

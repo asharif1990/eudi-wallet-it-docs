@@ -228,6 +228,7 @@ The ``OAuth-Client-Attestation`` is signed using the private key bound to the Wa
    2. It MUST ensure the Authorization ``code`` is valid and has not been previously used (:rfc:`6749`).
    3. It MUST ensure the ``redirect_uri`` matches the value included in the previous Request Object (see Section 3.1.3.1. of [`OIDC`_]).
    4. It MUST validate the DPoP Proof JWT, according to (:rfc:`9449`) Section 4.3.
+   5. It MUST verify the ``code_verifier`` parameter according to the PKCE mechanism, ensuring it matches the ``code_challenge`` associated with the authorization code as defined in Section 4.6 of :rfc:`7636`; otherwise, the request MUST be rejected (:ref:`CI_061a <test-plans-credential-issuer:Credential Issuer Test Matrix>`).
 
 .. code-block:: http
 
@@ -384,7 +385,7 @@ Where a non-normative example of the decoded content of the ``jwt`` parameter is
 The decoded content of ``jwt`` elements in the ``jwt`` array is similar to what is explained in **Step 16**.
 
 
-**Steps 20-24 (Credential Response)**: The Credential Issuer MUST validate the *DPoP JWT Proof* based on the steps defined in Section 4.3 of (:rfc:`9449`) and whether the *Access Token* is valid and suitable for the requested Credential. The Credential Issuer MUST validate all the key proofs that are provided within ``proofs`` (**Step 15** and **Step 18**) parameter that the new Credentials SHALL be bound to, according to `OpenID4VCI`_ Appendix F1. If all checks succeed, the Credential Issuer returns the issued Credential inside the ``credentials`` parameter. The number of elements in the Credentials array matches the number of the keys that the Wallet Instance has provided either via the ``proofs`` parameter (**Step 16** and **Step 19**). The Wallet Instance MUST perform the following checks before proceeding with the secure storage of the Credential(s):
+**Steps 20-24 (Credential Response)**: The Credential Issuer MUST validate the *DPoP JWT Proof* based on the steps defined in Section 4.3 of (:rfc:`9449`) and whether the *Access Token* is valid and suitable for the requested Credential. The Credential Issuer MUST validate all the key proofs that are provided within ``proofs`` (**Step 15** and **Step 18**) parameter that the new Credentials MUST be bound to, according to `OpenID4VCI`_ Appendix F1. If all checks succeed, the Credential Issuer returns the issued Credential inside the ``credentials`` parameter. The number of elements in the Credentials array matches the number of the keys that the Wallet Instance has provided either via the ``proofs`` parameter (**Step 16** and **Step 19**). The Wallet Instance MUST perform the following checks before proceeding with the secure storage of the Credential(s):
 
     1. It MUST check that the PID/(Q)EAA contained in the Credential Response contains all the mandatory parameters and values are validated according to :ref:`Table of the Credential response parameters <table_credential_response_claim>` (:ref:`WP_059 <wallet-credential-issuance-testcases>`).
     2. It MUST check the Credential integrity by verifying the signature using the algorithm specified in the ``alg`` header parameter of SD-JWT (:ref:`credential-data-model:Digital Credential Data Model`) and the public key that is identified using the ``kid`` header of the SD-JWT (:ref:`WP_062a <wallet-credential-issuance-testcases>`).
@@ -596,7 +597,7 @@ The following diagram describes the Digital Credential re-issuance flow.
 .. plantuml:: plantuml/credential-reissuance-flow.puml
     :width: 99%
     :alt: The figure illustrates the Re-Issuance Flow Diagram.
-    :caption: `Re-Issuance Flow Diagram. <https://www.plantuml.com/plantuml/svg/ZLHTRnCn47pthnYUQAMqLA9FAOM6faYH2gf2IeLQ5BbtUuc5OmVlNjBowucT3-LYABc7ABPdzcCywmiM7QIUMFNAkCBM9U7TvUcRozDXzzdfYIdUAwKIHZalX616Or5tOtBGw9gH4Mrn6QWa9qPREAAI8HwFX7fQQg6o1HdJDgR7N5DWVEvy1vCheU6ycCeKMentaHqPjqm1DHitWaQWaM6XG2LyBKU-EdhKhaJX9vFQhOd5M3j7zbZ5eB5SfTefYf-IOznfQqdGSopQ5NIcbAbmqAUPN_4d52COdk31uHnVHKlDk3Oi-708YKqVF1CVAYW0xJv9C3IZ1d3WVv93vKE4WCK7AhUQvxEqdxIqL4bQzUbNRI9k7bCuZvcsfan7UMXwCYoS3ZTjnaNiPKla5T4ut9yydRnjOV5x-cEdZVYHPSA1yuTGsFvO_5HXbSPKge5LSPahq66c4ANa_HI8RjfFWaRilqdmWWRdw7tvrhdkTVFkrwHYGnfo8WrB4ctiSLmHZDkWxszlkft1LGkTmQ3V-tWxk1ekTt9jzvIteV3Urx7yRJJHAGfYNjaawPULjFdo-Xh7oy6e0l5ultX0Uw5s43HPdwoVB-_xfNoP7i368ZjxM6RH3excwIM9eungaMSNEJSoJe_8QqQdZdNB-g7OWcPpbDz9ljhyYSyBkZV-1WtnnIEiHcC3ZVNc3-PQdCoxlFPkdDiMVC23-uzBppDF_lk-sd7WY2K9bEJnmVnEwfnjup9NDF34knaoJ_X0iVMivHVya3aYkuECk6_6dQbfTycI4AQ1PiRNtE2eLC35Wb9Fx1y0>`_
+    :caption: `Re-Issuance Flow Diagram. <https://www.plantuml.com/plantuml/svg/ZLFVYnCn47xFN_6zsSAT7FYsXtZL8Xme75KvH7p8xSvsWsbICvEs-jURfEtQbOZEmp93vfjlVdnxnwA3n8rLnL7E2o6OzI3gSI07ZQLP6z4MRm9rvCGarn5r3F5u8iHjfuMwAyX0bpdtp942u_tYCvXS1urKs_IcrMAyI-Y2-CGK4DcuDJG2hGqBfIBmKQvzV_sa4xBrcqrqPs0xQEV8FbUvQ6vNgQPKyLjoZ4TjBGdk7OjsBTqgA03DYYGOsX4-Y9R8U9U8yD5_8uVUXvm25f-OBsRW10OA1oprKg8LVOycv-tpUfp7JblJvQTAQJeadylZs6qEJ8_PRvupq3XykJdSlBX2-hx--ceEoHop7yJp0WDP9ioSdqFXqbZyLk54OtfL_3FHecs9-THHwRPI-MGbk6GQdyToA-e3yV1_zO0c3HS4KzHRw_V7vTRuwfCL6--XCBKZYtPmj2_QoyT7dtZ-pDmR6OhidZ4MCVSjPsbDKwSdApOkk1wDJXOabW_-0PFbYqSuwN1CJVrMVh7ZSYfIuQDKNXQ9_7tlJPOfiPH1ovW-c9zbojlQlKUgIJvnXM5wMn-eZ51hlNxN-cN7NTQ1_sQigRzPaYKXR0FjZ8yymQZIm5s2n8tz1G00>`_
 
 
 .. .. figure:: ../../images/Re-Issuance-Flow.svg
@@ -609,11 +610,7 @@ The following diagram describes the Digital Credential re-issuance flow.
 
 **Step 1**: The flow starts when the User opens the Wallet Instance: this step MAY be triggered either by a notification sent by the Credential Issuer (using e.g., one of the out-of-band communication contacts registered during the Issuance flow).
 
-**Step 2**: The Wallet Instance MUST check the status of any stored Digital Credential, by retrieving either a valid Status List Token (following the flow described in Section :ref:`credential-revocation:OAuth Status Lists`) or Status Assertion (following the flow described in Section :ref:`credential-revocation:OAuth Status Assertions`) as per (:ref:`WP_069 <wallet-credential-issuance-testcases>`), if a valid one is not available. Then, the Wallet Instance MUST check  (:ref:`WP_070 <wallet-credential-issuance-testcases>`):
-
-  - In case of Status List: if any Digital Credential has status set to ``0x03`` - ``UPDATE`` or ``0x04`` - ``ATTRIBUTE_UPDATE``.
-
-  - In case of Status Assertion: if ``credential_status_type`` is set to ``INVALID`` and ``credential_status_detail.state`` is set to ``UPDATE`` or ``ATTRIBUTE_UPDATE``.
+**Step 2**: The Wallet Instance MUST check the status of any stored Digital Credential, by retrieving either a valid Status List Token (following the flow described in Section :ref:`credential-revocation:Status List Token`) as per (:ref:`WP_069 <wallet-credential-issuance-testcases>`), if a valid one is not available. Then, the Wallet Instance MUST check  (:ref:`WP_070 <wallet-credential-issuance-testcases>`) if any Digital Credential has status set to ``0x03`` - ``UPDATE`` or ``0x0B`` - ``ATTRIBUTE_UPDATE``.
 
 If the conditions above are not met, the flow MUST be interrupted.
 
@@ -624,9 +621,9 @@ Otherwise, the Wallet Instance MUST check the related Access Tokens. If they are
 **Step 4**: The Wallet Instance MUST use a valid DPoP Access Token to retrieve the new Digital Credential requesting it to the Credential endpoint following the steps from 12 to 22 of Figure 9 in Section :ref:`credential-issuance-low-level:Low-Level Issuance Flow`  (:ref:`WP_072 <wallet-credential-issuance-testcases>`). When the new Digital Credential is successfully stored in the secure storage, the Wallet Instance MUST delete the previous one  (:ref:`WP_073 <wallet-credential-issuance-testcases>`).
 
 .. note::
-  Regardless of the Digital Credential revocation mechanism supported, if either the Digital Credential status is set to ``ATTRIBUTE_UPDATE`` (using OAuth Status List revocation) or ``credential_status_detail.state`` is set to ``ATTRIBUTE_UPDATE`` (using OAuth Status List revocation) the User's attribute set, in the refreshed Digital Credential, doesn't match the one in the stored Digital Credential. In this case, the Wallet Instance MUST request the User's authorization to store the new refreshed Digital Credential  (:ref:`WP_074 <wallet-credential-issuance-testcases>`). 
+  Regardless of the Digital Credential revocation mechanism supported, if the Digital Credential status is set to ``ATTRIBUTE_UPDATE``, the User's attribute set, in the refreshed Digital Credential, doesn't match the one in the stored Digital Credential. In this case, the Wallet Instance MUST request the User's authorization to store the new refreshed Digital Credential  (:ref:`WP_074 <wallet-credential-issuance-testcases>`). 
   
-  If instead, either the Digital Credential status is set to ``UPDATE``(using OAuth Status List revocation) or ``credential_status_detail.state`` set to ``UPDATE`` (using OAuth Status List revocation) the ``credential_status_detail.state`` is set to ``UPDATE``, only the Credential metadata parameters have changed. In this case, the Wallet Instance SHOULD store the new Digital Credential without requiring explicit user authorization and consent  (:ref:`WP_075 <wallet-credential-issuance-testcases>`).
+  If instead, either the Digital Credential status is set to ``UPDATE``, only the Credential metadata parameters have changed. In this case, the Wallet Instance SHOULD store the new Digital Credential without requiring explicit user authorization and consent  (:ref:`WP_075 <wallet-credential-issuance-testcases>`).
 
 
 Re-Issuance Flow: Security Considerations
@@ -645,12 +642,14 @@ Credential Offer Flow
 
 A Credential Issuer or third party (e.g., Authentic Source, Registry, Catalogue) initiates Credential Issuance by sending a Credential Offer to the Wallet Instance.
 
-The Wallet Instance invocation mechanism depends on the availability of the ``credential_offer_endpoint`` parameter in the Wallet metadata:
+To invoke the correct Wallet Instance, they need to know which Wallet Instance is installed on the User's device and the User wishes to use. This information SHOULD be obtained using the Selection Page described in :ref:`functionalities:User Experience Design`. 
 
-- If ``credential_offer_endpoint`` is available and contains an HTTPS URL (Universal Link), the Credential Issuer or third party SHOULD use that endpoint.
-- Otherwise, the Credential Issuer or third party MUST use one of the custom URL schemes: ``openid-credential-offer://`` (as defined in Section 4 of [`OpenID4VCI`_]) or ``haip://`` (as defined in Section 5.1.1 of [`OPENID4VC-HAIP`_]).
+- If the Selection Page is supported, the User selects the Wallet, and then the Credential Issuer or third party retrieves the Wallet metadata as described in :ref:`wallet-metadata-retrieval:Wallet Metadata Retrieval Flow`. The Wallet Instance invocation mechanism depends on the ``credential_offer_endpoint`` parameter in the Wallet metadata:
+  
+  - If ``credential_offer_endpoint`` is available and contains an HTTPS URL (Universal Link), the Credential Issuer or third party SHOULD use that endpoint.
+  - Otherwise, the Credential Issuer or third party MUST use one of the custom URL schemes: ``openid-credential-offer://`` (as defined in Section 4 of [`OpenID4VCI`_]) or ``haip-vci://`` (as defined in Section 4.2 of [`OPENID4VC-HAIP`_]). The Wallet Instance MUST support both custom URL schemes.
 
-The Wallet Instance MUST support both custom URL schemes.
+- In the case when the the Credential Issuer or third party does not support the Selection Page, or the retrieval of the Wallet metadata may fail for some reason, the the Credential Issuer or third party invokes the Wallet Instance using the custom URL scheme described above.
 
 The Credential Offer can be transmitted by value or by reference:
 
