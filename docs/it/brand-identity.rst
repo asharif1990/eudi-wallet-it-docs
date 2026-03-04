@@ -48,9 +48,10 @@ Il Logo è l'elemento grafico ufficiale che permette l'immediata riconoscibilit�
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/logoIT-Wallet.svg
+  .. figure:: ../../official_resources/IT-Wallet-Logo/IT-Wallet-Logo-Primary-BlueItalia.svg
     :alt: Logo del Brand “IT-Wallet” su sfondo chiaro  
     :width: 100%
+    :align: center
 
     Logo del Brand “IT-Wallet” su sfondo chiaro  
 
@@ -59,15 +60,17 @@ Il Logo è l'elemento grafico ufficiale che permette l'immediata riconoscibilit�
   .. figure:: ./images/pdf/logoIT-Wallet.pdf
     :alt: Logo del Brand “IT-Wallet” su sfondo chiaro  
     :width: 100%
+    :align: center
 
     Logo del Brand “IT-Wallet” su sfondo chiaro 
 
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/symbol-IT-Wallet.svg
+  .. figure:: ../../official_resources/IT-Wallet-Symbol/IT-Wallet-Symbol-Primary-BlueItalia.svg
     :alt: Pittogramma del Brand “IT-Wallet” su sfondo chiaro  
-    :width: 100%
+    :width: 25%
+    :align: center
 
     Pittogramma del Brand “IT-Wallet” su sfondo chiaro  
 
@@ -75,7 +78,8 @@ Il Logo è l'elemento grafico ufficiale che permette l'immediata riconoscibilit�
 
   .. figure:: ./images/pdf/symbol-IT-Wallet.pdf
     :alt: Pittogramma del Brand “IT-Wallet” su sfondo chiaro  
-    :width: 100%
+    :width: 25%
+    :align: center
 
     Pittogramma del Brand “IT-Wallet” su sfondo chiaro   
 
@@ -110,9 +114,10 @@ Il Trust Mark è l'elemento grafico ufficiale che dà prova all’Utente dell'ap
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/trustmark-ITA.svg
+  .. figure:: ../../official_resources/IT-Wallet-Trust-Mark/ITA/Trust-Mark-ITA-Blue-Primary.svg
     :alt: Trust Mark su sfondo chiaro  
     :width: 100%
+    :align: center
 
     Trust Mark su sfondo chiaro  
 
@@ -121,6 +126,7 @@ Il Trust Mark è l'elemento grafico ufficiale che dà prova all’Utente dell'ap
   .. figure:: ./images/pdf/trustmark-ITA.pdf
     :alt: Trust Mark su sfondo chiaro  
     :width: 100%
+    :align: center
 
     Trust Mark su sfondo chiaro 
 

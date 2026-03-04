@@ -47,9 +47,10 @@ The Logo is the official graphical element that ensures immediate recognition of
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/logoIT-Wallet.svg
+  .. figure:: ../../official_resources/IT-Wallet-Logo/IT-Wallet-Logo-Primary-BlueItalia.svg
     :alt: “IT-Wallet" Logo on a light background  
     :width: 100%
+    :align: center
 
     “IT-Wallet" Logo on a light background  
 
@@ -58,15 +59,17 @@ The Logo is the official graphical element that ensures immediate recognition of
   .. figure:: ./images/pdf/logoIT-Wallet.pdf
     :alt: “IT-Wallet" Logo on a light background  
     :width: 100%
+    :align: center
 
     “IT-Wallet" Logo on a light background 
 
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/symbol-IT-Wallet.svg
+  .. figure:: ../../official_resources/IT-Wallet-Symbol/IT-Wallet-Symbol-Primary-BlueItalia.svg
     :alt: “IT-Wallet” Logo symbol on a light background  
-    :width: 100%
+    :width: 25%
+    :align: center
 
     “IT-Wallet” Logo symbol on a light background  
 
@@ -74,7 +77,8 @@ The Logo is the official graphical element that ensures immediate recognition of
 
   .. figure:: ./images/pdf/symbol-IT-Wallet.pdf
     :alt: “IT-Wallet” Logo symbol on a light background  
-    :width: 100%
+    :width: 25%
+    :align: center
 
     “IT-Wallet” Logo symbol on a light background   
 
@@ -112,9 +116,10 @@ The Trust Mark is the official graphic element that guarantees the belonging of 
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/trustmark-ENG.svg
+  .. figure:: ../../official_resources/IT-Wallet-Trust-Mark/ENG/Trust-Mark-ENG-Primary-BlueItalia.svg
     :alt: Trust Mark on a light background  
     :width: 100%
+    :align: center
 
     Trust Mark on a light background  
 
@@ -123,6 +128,7 @@ The Trust Mark is the official graphic element that guarantees the belonging of 
   .. figure:: ./images/pdf/trustmark-ENG.pdf
     :alt: Trust Mark on a light background  
     :width: 100%
+    :align: center
 
     Trust Mark on a light background 
 

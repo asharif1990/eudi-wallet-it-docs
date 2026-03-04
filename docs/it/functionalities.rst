@@ -19,6 +19,7 @@ Il Sistema IT-Wallet offre all'utente un'esperienza più semplice, veloce e sicu
   .. figure:: ./images/svg/UX-phases-usage.svg
     :alt: Fasi dell'Esperienza Utente di utilizzo di un'Istanza del Wallet 
     :width: 100%
+    :align: center
 
     Fasi dell'Esperienza Utente di utilizzo di un'Istanza del Wallet 
 
@@ -71,6 +72,7 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Attivazione-IT-Wallet.svg
     :alt: Esempio di Esperienza Utente nell'Attivazione di un'Istanza del Wallet 
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente nell'Attivazione di un'Istanza del Wallet.
 
@@ -118,9 +120,10 @@ Per assicurare un’identificazione e una rappresentazione del PID coerente tra 
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/IT-Wallet-ID.svg
+  .. figure:: ../../official_resources/IT-Wallet-ID/IT-Wallet-ID-Primary-BlueItalia.svg
     :alt: Elemento grafico “IT-Wallet ID” su sfondo chiaro 
     :width: 100%
+    :align: center
 
     Elemento grafico “IT-Wallet ID” su sfondo chiaro 
 
@@ -201,6 +204,7 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Ottenimento-da-catalogo.svg
     :alt: Esempio di Esperienza Utente nell'Ottenimento di un Attestato Elettronico di Attributi da Catalogo
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente nell'Ottenimento di un Attestato Elettronico di Attributi da Catalogo.
 
@@ -259,6 +263,7 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Ottenimento-da-fonte-autentica.svg
     :alt: Esempio di Esperienza Utente nell'Ottenimento di un Attestato Elettronico da Touchpoint della Fonte Autentica
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente nell'Ottenimento di un Attestato Elettronico da Touchpoint della Fonte Autentica
 
@@ -383,6 +388,7 @@ Di seguito un esempio di layout di Attestato Elettronico di Attributi, all'inter
   .. figure:: ./images/svg/A4-Focus-EAA.svg
     :alt: Esempio di layout di Attestato Elettronico di Attributi, Vista in Anteprima e Vista di Dettaglio
     :width: 100%
+    :align: center
 
     Esempio di layout di Attestato Elettronico di Attributi, Vista in Anteprima e Vista di Dettaglio
 
@@ -444,6 +450,7 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Presentazione-prossimita.svg
     :alt: Esempio di Esperienza Utente nella presentazione in prossimità
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente nella presentazione in prossimità
 
@@ -488,6 +495,7 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Presentazione-remoto-same-device.svg
     :alt: Esempio di Esperienza Utente nella presentazione da remoto, same-device
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente nella presentazione da remoto, same-device
 
@@ -527,6 +535,7 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Presentazione-remoto-cross-device.svg
     :alt: Esempio di Esperienza Utente nella presentazione da remoto, cross-device
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente nella presentazione da remoto, cross-device
 
@@ -603,6 +612,7 @@ Per garantire l'Autenticazione tramite il Sistema IT-Wallet, il Verificatore di 
   .. figure:: ./images/svg/discovery-page.svg
      :alt: Modello di layout di Discovery Page a griglia
      :width: 100%
+     :align: center
 
      Modello di layout di Discovery Page a griglia  
 
@@ -641,6 +651,7 @@ Il Verificatore di Attestati Elettronici DEVE implementare la Selection Page res
   .. figure:: ./images/svg/selection-page.svg
      :alt: Selection Page
      :width: 100%
+     :align: center
 
      Selection Page 
 
@@ -681,6 +692,7 @@ Il Verificatore di Attestati Elettronici DEVE implementare la QR Code Page (flus
   .. figure:: ./images/svg/QR-page.svg
      :alt: QR Code Page
      :width: 100%
+     :align: center
 
      QR Code Page 
  
@@ -720,6 +732,7 @@ Il Verificatore di Attestati Elettronici DEVE implementare la Waiting Page (cros
   .. figure:: ./images/svg/waiting-page.svg
      :alt: Waiting Page
      :width: 100%
+     :align: center
 
      Waiting Page 
  
@@ -747,6 +760,7 @@ Il Verificatore di Attestati Elettronici DEVE implementare la Thank You Page res
   .. figure:: ./images/svg/thank-you-page.svg
      :alt: Thank You Page
      :width: 100%
+     :align: center
 
      Thank You Page 
  
@@ -775,6 +789,7 @@ Il Verificatore di Attestati Elettronici DEVE implementare la Error Page resa di
   .. figure:: ./images/svg/error-page.svg
      :alt: Error Page
      :width: 100%
+     :align: center
 
      Error Page 
  
@@ -800,6 +815,7 @@ Entrambi i flussi sono rappresentati di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Autenticazione-same-device.svg
     :alt: Esempio di Esperienza Utente di Autenticazione same-device
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente di Autenticazione same-device.
 
@@ -824,6 +840,7 @@ Entrambi i flussi sono rappresentati di seguito con wireframe esemplificativi.
   .. figure:: ./images/svg/Autenticazione-cross-device.svg
     :alt: Esempio di Esperienza Utente di Autenticazione cross-device
     :width: 100%
+    :align: center
 
     Esempio di Esperienza Utente di Autenticazione cross-device
 
@@ -892,6 +909,7 @@ Di seguito alcuni esempi non normativi di layout dell'Authentication Button:
   .. figure:: ./images/svg/layout-pulsante-autenticazione.svg
      :alt: Varianti di Authentication Button
      :width: 100% 
+     :align: center
 
  Varianti di Authentication Button
 
@@ -910,6 +928,7 @@ Le modalità di integrazione dell'Authentication Button nella Discovery Page pos
   .. figure:: ./images/svg/discovery-page-layouts.svg
     :alt: Esempi di layout di Discovery Page a griglia, a tab e in lista
      :width: 100%
+     :align: center
 
     Esempi di layout di Discovery Page a griglia, a tab e in lista
 
@@ -937,9 +956,10 @@ Per approfondimenti sull'Authentication button consultare il Brand Manual, indic
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/Authentication-button-ITA.svg
+  .. figure:: ../../official_resources/Authentication-button-ITA_size_variants.svg
      :alt: Authentication button nelle varianti di dimensione (S, M, L)
      :width: 100%
+     :align: center
 
      Authentication button nelle varianti di dimensione (S, M, L)
 
@@ -955,9 +975,10 @@ Per approfondimenti sull'Authentication button consultare il Brand Manual, indic
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/Authentication-Button-ITA-Fixed-Justified.svg
+  .. figure:: ../../official_resources/IT-Wallet-Authentication-Button/ITA/IT-Wallet-Authentication-Button-ITA-Fixed-Justified.svg
      :alt: Authentication button giustificato, a larghezza fissa
      :width: 100%
+     :align: center
 
      Authentication button giustificato, a larghezza fissa
 
@@ -972,9 +993,10 @@ Per approfondimenti sull'Authentication button consultare il Brand Manual, indic
 
 .. only:: format_html
 
-  .. figure:: ../../official_resources/Authentication-Button-ITA-Fixed-Centered.svg
+  .. figure:: ../../official_resources/IT-Wallet-Authentication-Button/ITA/IT-Wallet-Authentication-Button-ITA-Fixed-Centered.svg
      :alt: Authentication button centrato, a larghezza fissa
      :width: 100%
+     :align: center
 
      Authentication button centrato, a larghezza fissa
 
@@ -1079,13 +1101,15 @@ Il flusso è rappresentato di seguito con wireframe esemplificativi.
     Esempio di Esperienza Utente nella Revoca di un Attestato Elettronico da Wallet
 
 
-Storico degli Attestati Elettronici 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Registrazione delle Transazioni
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Al fine di garantire i principi di visibilità e trasparenza, il Fornitore di Wallet DEVE permettere all'Utente di visualizzare lo storico di tutte le transazioni effettuate, ovvero l'utilizzo degli Attestati Elettronici di Attributi tramite l'Istanza del Wallet. In particolare: 
+Al fine di garantire i principi di visibilità e trasparenza, il Fornitore di Wallet DEVE mettere a disposizione, nell’Istanza del Wallet, una dashboard intuitiva che consenta all’Utente di visualizzare lo storico delle transazioni effettuate tramite la propria Istanza del Wallet (ad esempio, emissione o presentazione di Attestati Elettronici). In particolare, la dashboard DEVE:
 
-- l'Istanza del Wallet DEVE mostrare all'Utente con quali Verificatori di Attestati Elettronici ha interagito e quali Attestati Elettronici sono stati oggetto di presentazione e verifica; 
-- l'Istanza del Wallet DEVE permettere all'Utente di richiedere facilmente al Verificatore di Attestati Elettronici la cancellazione delle proprie informazioni oggetto delle precedenti presentazioni. 
+- fornire una panoramica di tutte le transazioni registrate e consentire all’Utente di accedere a viste di dettaglio delle singole transazioni;
+- consentire all’Utente, qualora una transazione coinvolga una Relying Party, di avviare facilmente una richiesta di cancellazione dei dati verso la relativa Relying Party (utilizzando le informazioni di contatto registrate);
+- supportare l’esportazione di uno o più record di transazione in un file;
+- consentire all’Utente di cancellare uno o più record di transazione, previa adeguata informativa.
 
 Archiviazione e ripristino degli Attestati Elettronici di Attributi 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
