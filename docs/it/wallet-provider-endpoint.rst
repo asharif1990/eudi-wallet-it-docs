@@ -452,18 +452,26 @@ Il corpo del JWT della Wallet App Attestation contiene i seguenti claim:
     * - **cnf**
       - OBBLIGATORIO. Oggetto JSON, contenente la parte pubblica di una coppia di chiavi asimmetriche posseduta dall'Istanza di Wallet.
       - :rfc:`7800`.
-    * - **wallet_link**
-      - OPZIONALE. Stringa contenente un URL per ottenere ulteriori informazioni sul Wallet e sul Fornitore di Wallet.
-      - `OpenID4VCI`_.
-    * - **wallet_name**
-      - OPZIONALE. Stringa contenente un nome leggibile dall'uomo del Wallet.
-      - `OpenID4VCI`_.
-    * - **status**
-      - OPZIONALE. Stringa contenente le informazioni su come leggere lo stato della Wallet App Attestation come definito nella Sezione 6.2 di `TOKEN-STATUS-LIST`_.
-      - `OpenID4VCI`_.
+    * - **eudi_wallet_info**
+      - OBBLIGATORIO. Oggetto JSON, contenente le informazioni generali sul Wallet e sul fornitore del Wallet. Il seguente parametro DEVE essere incluso:
+
+        - **general_info**: OBBLIGATORIO. Un oggetto che contiene i seguenti parametri:
+
+          - **wallet_provider_name**: OBBLIGATORIO. Valore stringa del nome del Fornitore di Wallet, come riportato nella lista affidabile dei Fornitore di Wallet.
+          - **wallet_solution_id**: OBBLIGATORIO. Valore stringa dell identificatore della soluzione Wallet, come riportato nella lista affidabile dei Fornitore di Wallet.
+          - **wallet_solution_version**: OBBLIGATORIO. Valore stringa della versione della soluzione Wallet.
+          - **wallet_solution_certification_information**: OBBLIGATORIO. Valore stringa che contiene un URL che rimanda alla certificazione della soluzione Wallet.
+      - `EUDI-TS 3`_.
     * - **sub**
       - OBBLIGATORIO. Identificatore dell'Istanza di Wallet che è l'impronta digitale della JWK della Wallet App Attestation.
       - :rfc:`9126` e :rfc:`7519`.
+
+
+.. note::
+    Poiché lo schema di certificazione non è ancora stato definito, il contenuto esatto di ``wallet_solution_certification_information`` è attualmente non definito. Questo contenuto sarà definito in un aggiornamento futuro.
+
+
+
 
 Di seguito è riportato un esempio non normativo dell'header e del payload della Wallet App Attestation JWT senza codifica e firma applicata:
 
@@ -544,9 +552,22 @@ Il corpo del Wallet Unit Attestation JWT contiene le seguenti dichiarazioni (cla
     * - **status**
       - OBBLIGATORIO. Oggetto JSON che rappresenta i meccanismi supportati per la verifica della revoca, come ad esempio OAuth Status List.
       - `OpenID4VCI`_.
-    * - **certification**
-      - OPZIONALE. Una stringa che contiene un URL che rimanda alla certificazione del componente di archiviazione delle chiavi.
-      - `OpenID4VCI`_.
+    * - **eudi_wallet_info**
+      - OBBLIGATORIO. Oggetto JSON, contenente le informazioni generali sul Wallet e sul fornitore del Wallet. Il seguente parametro DEVE essere incluso:
+
+        - **general_info**: OBBLIGATORIO. Un oggetto che contiene i seguenti parametri:
+
+          - **wallet_provider_name**: OBBLIGATORIO. Valore stringa del nome del Fornitore di Wallet, come riportato nella lista affidabile dei Fornitore di Wallet.
+          - **wallet_solution_id**: OBBLIGATORIO. Valore stringa dell identificatore della soluzione Wallet, come riportato nella lista affidabile dei Fornitore di Wallet.
+          - **wallet_solution_version**: OBBLIGATORIO. Valore stringa della versione della soluzione Wallet.
+          - **wallet_solution_certification_information**: OBBLIGATORIO. Valore stringa che contiene un URL che rimanda alla certificazione della soluzione Wallet.
+
+        - **key_storage_info**: OBBLIGATORIO. Un oggetto che contiene i seguenti parametri:
+
+          - **storage_type**: OBBLIGATORIO. Valore stringa che identifica l'implementazione tecnica del WSCD. Può assumere uno dei seguenti valori: ``REMOTE``, ``LOCAL_EXTERNAL``, ``LOCAL_INTERNAL``, ``LOCAL_NATIVE``, o ``HYBRID``. 
+          - **keys_exportable**: OBBLIGATORIO. Valore booleano che definisce se le chiavi private del WSCD o del keystore possono essere esportate. DEVE essere impostato su ``true`` se il WSCD consente l'esportazione delle chiavi private (anche se solo in formato cifrato) e ``false`` altrimenti.
+          - **storage_certification_information**: OBBLIGATORIO. Stringa che contiene un URL che rimanda alla certificazione del componente di archiviazione delle chiavi.
+      - `EUDI-TS 3`_.
 
 
 Di seguito è riportato un esempio non normativo dell'intestazione e del payload del Wallet Unit Attestation JWT, senza codifica né firma applicata:
@@ -556,6 +577,13 @@ Di seguito è riportato un esempio non normativo dell'intestazione e del payload
 
 .. literalinclude:: ../../examples/wua-jwt_example_payload.json
   :language: JSON
+
+
+.. note::
+    Poiché lo schema di certificazione non è ancora stato definito, il contenuto esatto di ``wallet_solution_certification_information`` è attualmente non definito. 
+    Questo contenuto sarà definito in un aggiornamento futuro. Allo stesso modo, il contenuto esatto di ``storage_certification_information`` è attualmente non definito e sarà specificato in un aggiornamento futuro, ma DOVRÀ fornire informazioni sufficienti per determinare se l'archiviazione delle chiavi è un WSCD.  
+    Si noti che la specifica OpenID4VCI definisce un/a ``certification`` attributo nell ``key_attestation`` elemento che potrebbe essere utilizzato al posto di ``storage_certification_information``.
+
 
 
 Catalogo e-Service PDND del Fornitore di Wallet
